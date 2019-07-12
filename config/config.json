@@ -1,0 +1,7 @@
+{
+  "app_name": "goSSO",
+  "port": "8080",
+  "static_path": "/manage/static",
+  "mode": "dev",
+  "setLevel": "debug"
+}
