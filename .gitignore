@@ -10,3 +10,21 @@
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
+
+*.class
+*.lock
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+
+~$*
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
