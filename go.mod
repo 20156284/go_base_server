@@ -1,4 +1,4 @@
-module github.com/20156284/go_base_server.git
+module go_base_server
 
 go 1.16
 
