@@ -1,13 +1,11 @@
+
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <img alt="Vue logo" class="element-plus-logo" src="./assets/logo.png" />
+  <HelloWorld msg="Hello Vue 3.0 + Element Plus + Vite" />
 </template>
 
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
-
-// This starter template is using Vue 3 experimental <script setup> SFCs
-// Check out https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md
 </script>
 
 <style>
@@ -18,5 +16,8 @@ import HelloWorld from './components/HelloWorld.vue'
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.element-plus-logo {
+  width: 10%
 }
 </style>
