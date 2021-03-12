@@ -46,7 +46,7 @@ import echarts from 'echarts'
 Vue.prototype.$echarts = echarts;
 
 console.log(`
-       欢迎使用 Gf-Vue-Admin
+       欢迎使用 Go_Base_Server
        当前版本:V1.0.0
        联系方式:willzh@live.cn
        默认自动化文档地址:http://localhost:8888/swagger/index.html
