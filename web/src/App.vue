@@ -1,23 +1,27 @@
-
 <template>
-  <img alt="Vue logo" class="element-plus-logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3.0 + Element Plus + Vite" />
+  <div id="app">
+    <router-view></router-view>
+  </div>
 </template>
 
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import { checkDB } from "@/api/initdb"
+export default {
+  name: 'app',
+  async created(){
+    await checkDB()
+  }  
+}
 </script>
 
-<style>
+<style lang="scss">
+// 引入初始化样式
+@import '@/style/main.scss';
+@import '@/style/base.scss';
+@import '@/style/mobile.scss';
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-.element-plus-logo {
-  width: 10%
+  background: #eee;
+  height: 100vh;
+  overflow: hidden;
 }
 </style>
