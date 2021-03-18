@@ -1,7 +1,7 @@
 package request
 
 import (
-	model "go_base_server/server/app/model/extra"
+	model "go_base_server/app/model/extra"
 	"mime/multipart"
 	"strconv"
 )

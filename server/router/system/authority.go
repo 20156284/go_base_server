@@ -2,10 +2,10 @@ package router
 
 import (
 	"github.com/gogf/gf/net/ghttp"
-	"go_base_server/server/app/api/response"
-	api "go_base_server/server/app/api/system"
-	"go_base_server/server/interfaces"
-	"go_base_server/server/router/internal"
+	"go_base_server/app/api/response"
+	api "go_base_server/app/api/system"
+	"go_base_server/interfaces"
+	"go_base_server/router/internal"
 )
 
 type authority struct {

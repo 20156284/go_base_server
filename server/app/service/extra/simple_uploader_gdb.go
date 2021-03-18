@@ -5,10 +5,10 @@ import (
 	"errors"
 	"github.com/gogf/gf/database/gdb"
 	"github.com/gogf/gf/frame/g"
-	"go_base_server/server/app/api/request"
-	model "go_base_server/server/app/model/extra"
-	"go_base_server/server/library/global"
-	"go_base_server/server/library/utils"
+	"go_base_server/app/api/request"
+	model "go_base_server/app/model/extra"
+	"go_base_server/library/global"
+	"go_base_server/library/utils"
 	"io"
 	"io/ioutil"
 	"mime/multipart"
@@ -55,7 +55,7 @@ func (u *uploaderGdb) CreateChunk(info model.SimpleUploader) error {
 
 func (u *uploaderGdb) CheckFileMd5(info *request.CheckFileMd5) (uploads *[]model.SimpleUploader, isDone bool, err error) {
 	var entities []model.SimpleUploader
-	err = g.DB().Table(u._entity.TableName()).Where(g.Map{"identifier": info.Md5, "is_done": true}).Structs(entities)
+	err = g.DB().Table(u._entity.TableName()).Where(g.Map{"identifier": info.Md5, "is_done": true}).Structs(&entities)
 	isDone = errors.Is(g.DB().Table(u._entity.TableName()).Where(g.Map{"identifier": info.Md5, "is_done": true}).Struct(&model.SimpleUploader{}), sql.ErrNoRows)
 	return &entities, !isDone, err
 }

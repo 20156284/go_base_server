@@ -1,5 +1,14 @@
 package config
 
+import (
+	"github.com/gogf/gf/frame/g"
+	"strings"
+)
+
+type GormConfig struct {
+	Mysql Mysql `mapstructure:"mysql" json:"mysql" yaml:"mysql"`
+}
+
 type Mysql struct {
 	Path          string `mapstructure:"path" json:"path" yaml:"path"`
 	Config        string `mapstructure:"config" json:"config" yaml:"config"`
@@ -22,4 +31,36 @@ func (m *Mysql) GetMaxIdleConnes() int {
 
 func (m *Mysql) GetMaxOpenConnes() int {
 	return m.MaxOpenConnes
+}
+
+func (m *Mysql) GetByLink() Mysql {
+	var result Mysql
+	// link = "mysql:root:gdkid,,..@tcp(127.0.0.1:13307)/gf_vue_admin
+	link := g.Cfg().GetString("database.default.link")
+	// a := []string{"mysql", "root", "gdkid,,..@tcp(127.0.0.1", "13307)/gf_vue_admin"}
+	// a[0] = "mysql"
+	// a[1] = "root
+	// a[2] = "gdkid,,..@tcp(127.0.0.1"
+	// a[3] = "13307)/gf_vue_admin"
+	a := strings.Split(link, ":")
+	if len(a) == 4 {
+		result.Username = a[1] // root
+		// b := []string{"gdkid,,..", "127.0.0.1"}
+		b := strings.Split(a[2], "@tcp(")
+		// c := []string{"13307", "gf_vue_admin"}
+		c := strings.Split(a[3], ")/")
+		if len(b) == 2 || len(c) == 2 {
+			result.Password = b[0]          // gdkid,,..
+			result.Path = b[1] + ":" + c[0] // 127.0.0.1:13307
+			result.Dbname = c[1]
+		}
+		result.Config = "charset=utf8mb4&parseTime=True&loc=Local"
+		result.LogZap = ""
+		result.LogMode = false
+		result.MaxIdleConnes = 10
+		result.MaxOpenConnes = 100
+		return result
+	}
+	return result
+
 }

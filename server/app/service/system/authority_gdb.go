@@ -4,10 +4,10 @@ import (
 	"database/sql"
 	"errors"
 	"github.com/gogf/gf/frame/g"
-	"go_base_server/server/app/api/request"
-	"go_base_server/server/app/api/response"
-	model "go_base_server/server/app/model/system"
-	"go_base_server/server/app/service/system/internal"
+	"go_base_server/app/api/request"
+	"go_base_server/app/api/response"
+	model "go_base_server/app/model/system"
+	"go_base_server/app/service/system/internal"
 	"strconv"
 )
 
@@ -16,6 +16,7 @@ var Authority = new(authority)
 type authority struct {
 	_menu             model.Menu
 	_authority        model.Authority
+	_dataAuthorities  model.DataAuthorities
 	_authoritiesMenus model.AuthoritiesMenus
 }
 
@@ -74,6 +75,16 @@ func (a *authority) Copy(info *request.CopyAuthority) error {
 	if err := Casbin.Update(&request.UpdateCasbin{AuthorityId: info.Authority.AuthorityId, CasbinInfos: paths}); err != nil {
 		_ = a.Delete(&request.GetAuthorityId{AuthorityId: info.Authority.AuthorityId})
 	}
+
+	for _, data := range info.Authority.DataAuthority {
+		insert := &model.DataAuthorities{
+			AuthorityId:   info.Authority.AuthorityId,
+			DataAuthority: data.AuthorityName,
+		}
+		if _, err := g.DB().Table(a._dataAuthorities.TableName()).Insert(insert); err != nil {
+			return err
+		}
+	}
 	return nil
 }
 
@@ -93,7 +104,7 @@ func (a *authority) Delete(info *request.GetAuthorityId) error {
 	if !errors.Is(g.DB().Table(user.TableName()).Where(info.Condition()).Struct(&user), sql.ErrNoRows) {
 		return response.ErrorUseAuthority
 	}
-	if err := g.DB().Table(a._authority.TableName()).Where(info.Condition()).Struct(&entity); err != nil {
+	if err := g.DB().Table(a._authority.TableName()).Unscoped().Where(info.Condition()).Struct(&entity); err != nil {
 		return err
 	}
 	entity.Menus = internal.Authority().GetMenus(entity.AuthorityId)
@@ -102,14 +113,12 @@ func (a *authority) Delete(info *request.GetAuthorityId) error {
 		return err
 	}
 	if len(entity.Menus) > 0 {
-		var _a model.AuthoritiesMenus
-		if _, err := g.DB().Table(_a.TableName()).Delete(&entity.Menus); err != nil {
+		if _, err := g.DB().Table(a._authoritiesMenus.TableName()).Delete(g.Map{"authority_id": entity.AuthorityId}); err != nil {
 			return err
 		}
 	}
 	if len(entity.DataAuthority) > 0 {
-		var _d model.DataAuthorities
-		if _, err := g.DB().Table(_d.TableName()).Delete(&entity.DataAuthority); err != nil {
+		if _, err := g.DB().Table(a._dataAuthorities.TableName()).Delete(g.Map{"authority_id": entity.AuthorityId}); err != nil {
 			return err
 		}
 	}
@@ -135,12 +144,12 @@ func (a *authority) GetList(info *request.PageInfo) (list interface{}, total int
 
 //@description: 设置角色资源权限
 func (a *authority) SetDataAuthority(info *request.SetDataAuthority) error {
-	if _, err := g.DB().Table(a._authority.TableName()).Delete(g.Map{"authority_id": info.AuthorityId}); err != nil {
+	if _, err := g.DB().Table(a._dataAuthorities.TableName()).Unscoped().Delete(g.Map{"authority_id": info.AuthorityId}); err != nil {
 		return err
 	}
 	for _, d := range info.DataAuthorityId {
 		entity := &model.DataAuthorities{AuthorityId: info.AuthorityId, DataAuthority: d.AuthorityId}
-		if _, err := g.DB().Table(entity.TableName()).Insert(entity); err != nil {
+		if _, err := g.DB().Table(a._dataAuthorities.TableName()).Insert(entity); err != nil {
 			return err
 		}
 	}

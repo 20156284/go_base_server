@@ -4,11 +4,11 @@ import (
 	"github.com/casbin/casbin/v2"
 	"github.com/casbin/casbin/v2/util"
 	"github.com/gogf/gf/frame/g"
-	"go_base_server/server/app/api/request"
-	"go_base_server/server/app/api/response"
-	model "go_base_server/server/app/model/system"
-	gdbadapter "go_base_server/server/integration/gdbadapter"
-	"go_base_server/server/library/global"
+	"go_base_server/app/api/request"
+	"go_base_server/app/api/response"
+	model "go_base_server/app/model/system"
+	"go_base_server/library/gdbadapter"
+	"go_base_server/library/global"
 	"strings"
 )
 

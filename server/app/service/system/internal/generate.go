@@ -1,8 +1,8 @@
 package internal
 
 import (
-	model "go_base_server/server/app/model/system"
-	"go_base_server/server/library/constant"
+	model "go_base_server/app/model/system"
+	"go_base_server/library/constant"
 	"io/ioutil"
 	"os"
 	"path/filepath"

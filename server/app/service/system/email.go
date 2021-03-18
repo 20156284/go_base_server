@@ -1,6 +1,6 @@
 package service
 
-import "go_base_server/server/library/utils"
+import "go_base_server/library/utils"
 
 var Email = new(email)
 

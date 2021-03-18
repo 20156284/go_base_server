@@ -1,7 +1,7 @@
 package request
 
 import (
-	"go_base_server/server/app/model"
+	"go_base_server/app/model"
 	"github.com/gogf/gf/frame/g"
 )
 

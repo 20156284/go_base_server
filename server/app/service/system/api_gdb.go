@@ -4,9 +4,9 @@ import (
 	"database/sql"
 	"errors"
 	"github.com/gogf/gf/frame/g"
-	"go_base_server/server/app/api/request"
-	"go_base_server/server/app/api/response"
-	model "go_base_server/server/app/model/system"
+	"go_base_server/app/api/request"
+	"go_base_server/app/api/response"
+	model "go_base_server/app/model/system"
 )
 
 var Api = new(api)

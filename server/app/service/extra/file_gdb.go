@@ -3,9 +3,9 @@ package service
 import (
 	"errors"
 	"github.com/gogf/gf/frame/g"
-	"go_base_server/server/app/api/request"
-	model "go_base_server/server/app/model/extra"
-	"go_base_server/server/integration/upload"
+	"go_base_server/app/api/request"
+	model "go_base_server/app/model/extra"
+	"go_base_server/library/upload"
 	"mime/multipart"
 	"strings"
 )

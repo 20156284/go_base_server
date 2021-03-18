@@ -4,9 +4,9 @@ import (
 	"database/sql"
 	"errors"
 	"github.com/gogf/gf/frame/g"
-	"go_base_server/server/app/api/request"
-	model "go_base_server/server/app/model/extra"
-	"go_base_server/server/library/utils"
+	"go_base_server/app/api/request"
+	model "go_base_server/app/model/extra"
+	"go_base_server/library/utils"
 	"io/ioutil"
 	"mime/multipart"
 	"strconv"
@@ -29,7 +29,7 @@ func (b *breakpointContinueGdb) FindOrCreateFile(info *request.BreakpointContinu
 	create := info.Create()
 	if errors.Is(g.DB().Table(b._entity.TableName()).Where(g.Map{"file_md5": info.FileMd5, "is_finish": true}).Struct(&entity), sql.ErrNoRows) {
 		_, err = g.DB().Table(b._entity.TableName()).Insert(create)
-		err = g.DB().Table(b._chunk.TableName()).Where(g.Map{"file_id": entity.ID}).Structs(create.FileChunk)
+		err = g.DB().Table(b._chunk.TableName()).Where(g.Map{"file_id": entity.ID}).Structs(&create.FileChunk)
 		return &entity, err
 	}
 	create.IsFinish = true
@@ -84,5 +84,11 @@ func (b *breakpointContinueGdb) BreakpointContinue(info *request.BreakpointConti
 
 //@description: 上传文件完成
 func (b *breakpointContinueGdb) BreakpointContinueFinish(info *request.BreakpointContinueFinish) (filepath string, err error) {
-	return utils.File.MakeFile(info.FileName, info.FileMd5)
+	if filepath, err = utils.File.MakeFile(info.FileName, info.FileMd5); err != nil {
+		return filepath, err
+	}
+	if err = utils.File.RemoveChunk(info.FileMd5); err != nil {
+		return filepath, err
+	}
+	return
 }

@@ -3,7 +3,7 @@ package utils
 import (
 	"crypto/tls"
 	"fmt"
-	"go_base_server/server/library/global"
+	"go_base_server/library/global"
 	"net/smtp"
 	"strings"
 

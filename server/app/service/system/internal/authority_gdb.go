@@ -2,7 +2,7 @@ package internal
 
 import (
 	"github.com/gogf/gf/frame/g"
-	model "go_base_server/server/app/model/system"
+	model "go_base_server/app/model/system"
 )
 
 func Authority() *authority {

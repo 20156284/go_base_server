@@ -1,6 +1,6 @@
 package request
 
-import model "go_base_server/server/app/model/extra"
+import model "go_base_server/app/model/extra"
 
 type BaseFile struct {
 	Url  string `json:"url" gorm:"comment:文件地址"`

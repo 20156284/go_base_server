@@ -1,9 +1,9 @@
 package service
 
 import (
-	"go_base_server/server/app/api/request"
-	model "go_base_server/server/app/model/extra"
-	"go_base_server/server/library/global"
+	"go_base_server/app/api/request"
+	model "go_base_server/app/model/extra"
+	"go_base_server/library/global"
 	"mime/multipart"
 )
 

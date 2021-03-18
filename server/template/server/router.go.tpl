@@ -1,9 +1,9 @@
 package router
 
 import (
-	"go_base_server/server/app/api"
-	"go_base_server/server/app/api/response"
-	"go_base_server/server/interfaces"
+	"go_base_server/app/api"
+	"go_base_server/app/api/response"
+	"go_base_server/interfaces"
 	"github.com/gogf/gf/net/ghttp"
 )
 

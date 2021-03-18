@@ -2,10 +2,10 @@ package service
 
 import (
 	"errors"
-	"go_base_server/server/app/api/request"
-	model "go_base_server/server/app/model/extra"
-	"go_base_server/server/library/global"
-	"go_base_server/server/library/utils"
+	"go_base_server/app/api/request"
+	model "go_base_server/app/model/extra"
+	"go_base_server/library/global"
+	"go_base_server/library/utils"
 	"gorm.io/gorm"
 	"io/ioutil"
 	"mime/multipart"

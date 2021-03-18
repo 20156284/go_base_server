@@ -6,16 +6,18 @@ import (
 	"github.com/go-redis/redis/v8"
 	"github.com/gogf/gf/os/gtime"
 	"github.com/spf13/viper"
-	"go_base_server/server/library/config"
+	"go_base_server/library/config"
 	"gorm.io/gorm"
 	"time"
 )
 
 var (
-	Db     *gorm.DB
-	Viper  *viper.Viper
-	Redis  *redis.Client
-	Config config.Config
+	Db         *gorm.DB
+	Viper      *viper.Viper
+	Redis      *redis.Client
+	Config     config.Config
+	GormViper  *viper.Viper
+	GormConfig config.GormConfig
 )
 
 type _gtime gtime.Time

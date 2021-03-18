@@ -1,10 +1,10 @@
 package api
 
 import (
-	"go_base_server/server/app/api/request"
-	"go_base_server/server/app/api/response"
-	"go_base_server/server/app/model"
-	"go_base_server/server/app/service"
+	"go_base_server/app/api/request"
+	"go_base_server/app/api/response"
+	"go_base_server/app/model"
+	"go_base_server/app/service"
 	"github.com/gogf/gf/frame/g"
 	"github.com/gogf/gf/net/ghttp"
 )

@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"go_base_server/server/library/constant"
+	"go_base_server/library/constant"
 	"io/ioutil"
 	"os"
 	"strconv"

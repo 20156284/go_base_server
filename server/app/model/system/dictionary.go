@@ -1,6 +1,6 @@
 package model
 
-import "go_base_server/server/library/global"
+import "go_base_server/library/global"
 
 type Dictionary struct {
 	global.Model

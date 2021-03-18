@@ -4,7 +4,7 @@ import (
 	"context"
 	"github.com/go-redis/redis/v8"
 	"github.com/gogf/gf/frame/g"
-	"go_base_server/server/library/global"
+	"go_base_server/library/global"
 )
 
 var Redis = new(_redis)

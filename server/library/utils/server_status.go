@@ -4,8 +4,8 @@ import (
 	"github.com/shirou/gopsutil/cpu"
 	"github.com/shirou/gopsutil/disk"
 	"github.com/shirou/gopsutil/mem"
-	"go_base_server/server/app/api/response"
-	"go_base_server/server/library/constant"
+	"go_base_server/app/api/response"
+	"go_base_server/library/constant"
 	"runtime"
 	"time"
 )

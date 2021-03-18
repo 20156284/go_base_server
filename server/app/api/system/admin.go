@@ -3,10 +3,10 @@ package api
 import (
 	"github.com/gogf/gf/frame/g"
 	"github.com/gogf/gf/net/ghttp"
-	"go_base_server/server/app/api/internal"
-	"go_base_server/server/app/api/request"
-	"go_base_server/server/app/api/response"
-	"go_base_server/server/app/service/system"
+	"go_base_server/app/api/internal"
+	"go_base_server/app/api/request"
+	"go_base_server/app/api/response"
+	"go_base_server/app/service/system"
 )
 
 var Admin = new(admin)

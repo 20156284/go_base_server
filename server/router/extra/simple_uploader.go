@@ -2,9 +2,9 @@ package router
 
 import (
 	"github.com/gogf/gf/net/ghttp"
-	api "go_base_server/server/app/api/extra"
-	"go_base_server/server/app/api/response"
-	"go_base_server/server/interfaces"
+	api "go_base_server/app/api/extra"
+	"go_base_server/app/api/response"
+	"go_base_server/interfaces"
 )
 
 type uploader struct {

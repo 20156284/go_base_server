@@ -3,10 +3,10 @@ package api
 import (
 	"github.com/gogf/gf/frame/g"
 	"github.com/gogf/gf/net/ghttp"
-	"go_base_server/server/app/api/request"
-	"go_base_server/server/app/api/response"
-	model "go_base_server/server/app/model/extra"
-	service "go_base_server/server/app/service/extra"
+	"go_base_server/app/api/request"
+	"go_base_server/app/api/response"
+	model "go_base_server/app/model/extra"
+	service "go_base_server/app/service/extra"
 	"mime/multipart"
 )
 

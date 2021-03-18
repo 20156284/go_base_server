@@ -2,7 +2,7 @@ package request
 
 import (
 	uuid "github.com/satori/go.uuid"
-	model "go_base_server/server/app/model/system"
+	model "go_base_server/app/model/system"
 )
 
 type BaseAdmin struct {

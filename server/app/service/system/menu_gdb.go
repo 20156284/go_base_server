@@ -5,10 +5,10 @@ import (
 	"errors"
 	"github.com/gogf/gf/database/gdb"
 	"github.com/gogf/gf/frame/g"
-	"go_base_server/server/app/api/request"
-	"go_base_server/server/app/api/response"
-	model "go_base_server/server/app/model/system"
-	"go_base_server/server/app/service/system/internal"
+	"go_base_server/app/api/request"
+	"go_base_server/app/api/response"
+	model "go_base_server/app/model/system"
+	"go_base_server/app/service/system/internal"
 )
 
 var Menu = new(menu)
@@ -71,7 +71,7 @@ func (m *menu) Update(info *request.UpdateMenu) error {
 		if _, err := g.DB().Table(m._parameter.TableName()).Delete(g.Map{"id": info.ID}); err != nil {
 			return err
 		}
-		if _, err := tx.Table(m._menu.TableName()).Data(info.Update()).Insert(); err != nil {
+		if _, err := tx.Table(m._menu.TableName()).Update(info.Update(), g.Map{"id": info.ID}); err != nil {
 			return response.ErrorUpdateMenu
 		}
 		if _, err := tx.Table(m._menusParameters.TableName()).Unscoped().Delete(g.Map{"menu_id": info.ID}); err != nil {

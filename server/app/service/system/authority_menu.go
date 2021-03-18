@@ -2,9 +2,9 @@ package service
 
 import (
 	"github.com/gogf/gf/frame/g"
-	"go_base_server/server/app/api/request"
-	model "go_base_server/server/app/model/system"
-	"go_base_server/server/app/service/system/internal"
+	"go_base_server/app/api/request"
+	model "go_base_server/app/model/system"
+	"go_base_server/app/service/system/internal"
 )
 
 var AuthorityMenu = new(authorityMenu)

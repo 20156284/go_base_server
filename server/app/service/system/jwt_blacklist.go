@@ -5,8 +5,8 @@ import (
 	"database/sql"
 	"errors"
 	"github.com/gogf/gf/frame/g"
-	model "go_base_server/server/app/model/system"
-	"go_base_server/server/library/global"
+	model "go_base_server/app/model/system"
+	"go_base_server/library/global"
 	"time"
 )
 

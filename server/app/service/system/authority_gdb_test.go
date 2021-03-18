@@ -1,7 +1,7 @@
 package service
 
 import (
-	"go_base_server/server/app/api/request"
+	"go_base_server/app/api/request"
 	"testing"
 )
 

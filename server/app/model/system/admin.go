@@ -1,7 +1,7 @@
 package model
 
 import (
-	"go_base_server/server/library/global"
+	"go_base_server/library/global"
 	"golang.org/x/crypto/bcrypt"
 )
 

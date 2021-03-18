@@ -1,6 +1,6 @@
 package request
 
-import system "go_base_server/server/app/model/system"
+import system "go_base_server/app/model/system"
 
 type ExcelInfo struct {
 	FileName string        `json:"fileName"`

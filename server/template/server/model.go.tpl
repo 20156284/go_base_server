@@ -1,6 +1,6 @@
 package model
 
-import "go_base_server/server/library/global"
+import "go_base_server/library/global"
 
 // 如果含有time.Time 请自行import time包
 type {{.StructName}} struct {

@@ -6,8 +6,8 @@ import (
 	"github.com/fsnotify/fsnotify"
 	"github.com/gogf/gf/frame/g"
 	"github.com/spf13/viper"
-	"go_base_server/server/library/constant"
-	"go_base_server/server/library/global"
+	"go_base_server/library/constant"
+	"go_base_server/library/global"
 	"os"
 )
 

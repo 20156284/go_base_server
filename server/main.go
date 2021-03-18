@@ -1,10 +1,10 @@
 package main
 
-import "go_base_server/server/boot"
+import "go_base_server/boot"
 
-// @title Go_Base_Server Swagger Docs
-// @version 2.4.0
-// @description This is a Go_Base_Server Server
+// @title Gf-vue-admin Swagger Docs
+// @version 1.0.0
+// @description This is a Gf-vue-admin Server
 // @securityDefinitions.apikey ApiKeyAuth
 // @in header
 // @name Authorization

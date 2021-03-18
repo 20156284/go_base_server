@@ -4,7 +4,7 @@ import (
 	"github.com/gogf/gf/frame/g"
 	"github.com/gogf/gf/net/ghttp"
 	"github.com/gogf/gf/util/gconv"
-	"go_base_server/server/app/api/request"
+	"go_base_server/app/api/request"
 )
 
 var Info = new(info)

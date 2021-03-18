@@ -4,10 +4,10 @@ import (
 	"database/sql"
 	"errors"
 	"github.com/gogf/gf/frame/g"
-	"go_base_server/server/app/api/request"
-	"go_base_server/server/app/api/response"
-	"go_base_server/server/app/model/system"
-	"go_base_server/server/app/service/system/internal"
+	"go_base_server/app/api/request"
+	"go_base_server/app/api/response"
+	"go_base_server/app/model/system"
+	"go_base_server/app/service/system/internal"
 )
 
 var Admin = new(admin)
@@ -95,10 +95,10 @@ func (a *admin) SetAdminInfo(info *request.UpdateAdmin) (result *model.Admin, er
 	return a.FindAdmin(&request.GetByUuid{Uuid: info.Uuid})
 }
 
-//@description: 管理员登陆
+//@description: 设置管理员信息
 func (a *admin) Login(info *request.AdminLogin) (result *model.Admin, err error) {
 	var entity model.Admin
-	if err = g.DB().Table(a._admin.TableName()).Where(g.Map{"username": info.Username}).Scan(&entity); err != nil {
+	if err = g.DB().Table(a._admin.TableName()).Where(g.Map{"username": info.Username}).Struct(&entity); err != nil {
 		return &entity, response.ErrorUserNoExist
 	}
 	entity.Authority = internal.Authority().First(entity.AuthorityId)

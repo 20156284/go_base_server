@@ -1,4 +1,4 @@
-module go_base_server/server
+module go_base_server
 
 go 1.16
 

@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/gogf/gf/frame/g"
-	"go_base_server/server/library/global"
+	"go_base_server/library/global"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 	"gorm.io/gorm/utils"
@@ -183,7 +183,7 @@ func (t *traceRecorder) Trace(ctx context.Context, begin time.Time, fc func() (s
 }
 
 func GenerateConfig() *gorm.Config {
-	var _config = &gorm.Config{DisableForeignKeyConstraintWhenMigrating: true}
+	_config := &gorm.Config{DisableForeignKeyConstraintWhenMigrating: true}
 	switch global.Config.Mysql.LogZap {
 	case "silent", "Silent":
 		_config.Logger = Default.LogMode(logger.Silent)

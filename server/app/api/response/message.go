@@ -34,6 +34,16 @@ var Message = map[Code]string{
 	// JwtBlackList
 	SuccessJwtBlackList: "jwt作废成功!",
 
+	// BreakpointContinue
+	SuccessFind:        "查找成功!",
+	SuccessFinish:      "上传文件完成",
+	SuccessCreateChunk: "缓存切片创建成功",
+	SuccessRemoveChunk: "缓存切片删除成功",
+
+	// Uploader
+	SuccessCheckFileMd5: "检查文件md5成功!",
+	SuccessMergeFileMd5: "合并文件md5成功!",
+
 	SuccessEnd: "成功码结束!",
 
 	//失败
@@ -65,6 +75,10 @@ var Message = map[Code]string{
 
 	// JwtBlackList
 	ErrorJwtBlackList: "jwt作废失败!",
+
+	// Uploader
+	ErrorCheckFileMd5: "检查文件md5失败!",
+	ErrorMergeFileMd5: "合并文件md5失败!",
 
 	ErrorEnd: "失败码结束!",
 

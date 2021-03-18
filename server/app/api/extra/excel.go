@@ -3,11 +3,11 @@ package api
 import (
 	"github.com/gogf/gf/frame/g"
 	"github.com/gogf/gf/net/ghttp"
-	"go_base_server/server/app/api/request"
-	"go_base_server/server/app/api/response"
-	service "go_base_server/server/app/service/extra"
-	"go_base_server/server/library/constant"
-	"go_base_server/server/library/utils"
+	"go_base_server/app/api/request"
+	"go_base_server/app/api/response"
+	service "go_base_server/app/service/extra"
+	"go_base_server/library/constant"
+	"go_base_server/library/utils"
 	"net/url"
 )
 

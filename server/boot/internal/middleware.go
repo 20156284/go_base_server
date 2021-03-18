@@ -3,7 +3,7 @@ package internal
 import (
 	"github.com/gogf/gf/frame/g"
 	"github.com/gogf/gf/net/ghttp"
-	"go_base_server/server/app/api/response"
+	"go_base_server/app/api/response"
 )
 
 var Middleware = new(middleware)
