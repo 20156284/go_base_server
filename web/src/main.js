@@ -46,9 +46,9 @@ import echarts from 'echarts'
 Vue.prototype.$echarts = echarts;
 
 console.log(`
-       欢迎使用 Go_Base_Server
-       当前版本:V1.0.0
-       联系方式:willzh@live.cn
-       默认自动化文档地址:http://localhost:8888/swagger/index.html
+欢迎使用 go_base_server
+当前版本:V0.1.0
+加群方式:willzh@live.cn
+       默认自动化文档地址:http://localhost%s/swagger/index.html
        默认前端文件运行地址:http://localhost:8080
 `)
