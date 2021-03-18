@@ -49,8 +49,8 @@ export default {
         host: "127.0.0.1",
         port: "3306",
         userName: "root",
-        password: "",
-        dbName: "gva",
+        password: "willzhang520",
+        dbName: "go_base_server",
       },
     };
   },

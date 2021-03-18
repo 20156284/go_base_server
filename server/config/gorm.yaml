@@ -1,11 +1,10 @@
-# mysql connect configuration
 mysql:
-  path: ''
-  config: ''
-  db-name: ''
-  username: ''
-  password: ''
-  max-idle-conns: 10
-  max-open-conns: 100
+  config: charset=utf8mb4&parseTime=True&loc=Local
+  db-name: go_base_server
   log-mode: false
   log-zap: ""
+  max-idle-conns: 10
+  max-open-conns: 100
+  password: willzhang520
+  path: 127.0.0.1:3306
+  username: root
