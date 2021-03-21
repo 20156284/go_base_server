@@ -10,11 +10,11 @@ node_modules
 .env.*.local
 
 # Log folder
-server/chunk
-server/finish
-server/logs
+go_base_server/chunk
+go_base_server/finish
+go_base_server/logs
 dump.rdb
-server/dump.rdb
+go_base_server/dump.rdb
 
 # Log files
 npm-debug.log*
@@ -31,10 +31,10 @@ yarn-error.log*
 *.sw?
 
 go.sum
-/server/uploads/file/
-/server/log/
-/server/app/service/system/log/
-/server/latest_log
-/server/.idea
+/go_base_server/uploads/file/
+/go_base_server/log/
+/go_base_server/app/service/system/log/
+/go_base_server/latest_log
+/go_base_server/.idea
 
 *.iml
