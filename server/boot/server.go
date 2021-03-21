@@ -25,13 +25,11 @@ func (s *_server) Initialize() {
 	go_base_server.Use(internal.Middleware.Error, internal.Middleware.CORS)
 	router.Routers.Init()
 	g.Log().Printf(`
-	欢迎使用 Gf-Vue-Admin
-	当前版本:V2.4.0
-	加群方式:微信号：SliverHorn QQ群：1040044540
+	欢迎使用 Go_Base_Ser
+	当前版本:V1.0.0
+	加群方式:willzh@live.cn
 	默认自动化文档地址:http://127.0.0.1%s/swagger
-	默认前端文件运行地址:http://127.0.0.1:8080
-	如果项目让您获得了收益，希望您能请团队喝杯可乐:https://www.go_base_server.com/docs/coffee
-`, address)
+	默认前端文件运行地址:http://127.0.0.1:8080`, address)
 	go_base_server.Plugin(&swagger.Swagger{})
 	go_base_server.SetPort()
 	go_base_server.Run()
