@@ -35,5 +35,6 @@ go.sum
 /server/log/
 /server/app/service/system/log/
 /server/latest_log
+/server/.idea
 
 *.iml
