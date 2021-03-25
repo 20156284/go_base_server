@@ -13,9 +13,13 @@ module.exports = {
         'prettier/@typescript-eslint'
     ],
     parserOptions: {
-        ecmaVersion: 12,
+        ecmaVersion: 2021,
         parser: '@typescript-eslint/parser',
-        sourceType: 'module'
+        sourceType: 'module',
+        ecmaFeatures: {
+             tsx: true, // Allows for the parsing of JSX
+            // jsx: true,
+        },
     },
     plugins: ['vue', '@typescript-eslint'],
     rules: {}
