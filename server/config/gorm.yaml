@@ -9,3 +9,16 @@ mysql:
   max-open-conns: 100
   log-mode: false
   log-zap: ""
+
+## mysql connect configuration
+## 这里是初始化之前 如果您初始化之后 又想改动 请重新使用以下配置
+#mysql:
+#  path: ''
+#  config: ''
+#  db-name: ''
+#  username: ''
+#  password: ''
+#  max-idle-conns: 10
+#  max-open-conns: 100
+#  log-mode: false
+#  log-zap: ""

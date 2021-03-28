@@ -48,7 +48,7 @@ func (s *system) GetServerInfo(r *ghttp.Request) *response.Response {
 		g.Log().Error("获取失败!", g.Map{"err": err})
 		return &response.Response{Error: err, MessageCode: response.ErrorOperation}
 	} else {
-		return &response.Response{Data: g.Map{"go_base_server": result}, MessageCode: response.SuccessOperation}
+		return &response.Response{Data: g.Map{"server": result}, MessageCode: response.SuccessOperation}
 	}
 }
 

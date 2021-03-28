@@ -10,14 +10,14 @@ import (
 	"time"
 )
 
-var Server = new(go_base_server)
+var Server = new(server)
 
-type go_base_server struct {
+type server struct {
 	err     error
 	_server response.Server
 }
 
-func (s *go_base_server) Data() (*response.Server, error) {
+func (s *server) Data() (*response.Server, error) {
 	// Os
 	s._server.Os.GOOS = runtime.GOOS
 	s._server.Os.NumCPU = runtime.NumCPU()

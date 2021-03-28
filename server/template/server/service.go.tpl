@@ -1,9 +1,9 @@
 package service
 
 import (
-	"github.com/gogf/gf/frame/g"
 	"go_base_server/app/api/request"
 	"go_base_server/app/model"
+	"github.com/gogf/gf/frame/g"
 )
 
 var {{.StructName}} = new({{.Abbreviation}})

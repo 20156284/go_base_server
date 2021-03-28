@@ -39,7 +39,7 @@ clean:
 	@if [ -f ${GBS} ] ; then rm ${GBS} ; fi
 
 help:
-	@echo "make - 构建gbs终端工具并初始化数据,初始化数据后删除gbs终端工具,启动server项目"
+	@echo "make - 构建gbs终端工具并初始化数据,初始化数据后删除gfva终端工具,启动server项目"
 	@echo "make gbs - 构建gbs终端工具 并初始化数据"
 	@echo "make linux-build - 编译 Go 代码, 生成Linux系统的二进制文件"
 	@echo "make windows-build - 编译 Go 代码, 生成Windows系统的exe文件"

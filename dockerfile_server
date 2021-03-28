@@ -1,0 +1,32 @@
+FROM golang:alpine as server
+
+ENV GO111MODULE=on
+ENV GOPROXY=https://goproxy.io,direct
+WORKDIR /go/src/gf-vue-admin
+COPY server/ ./
+
+RUN cat ./config/config.yaml
+COPY .docker-compose/shell/server-handle.sh .
+RUN sh ./server-handle.sh
+RUN rm -f server-handle.sh
+RUN cat ./config/config.yaml
+
+RUN go build -o gfva cmd/gfva/main.go
+RUN go env && go list && go build -o server .
+
+FROM alpine:latest
+MAINTAINER SliverHorn <sliver_horn@qq.com>
+
+WORKDIR gf-vue-admin/
+
+# copy server
+COPY --from=server /go/src/go-baser-server/gfva ./
+COPY --from=server /go/src/go-baser-server/server ./
+COPY --from=server /go/src/go-baser-server/public ./public
+COPY --from=server /go/src/go-baser-server/config ./config
+COPY --from=server /go/src/go-baser-server/swagger ./swagger
+COPY --from=server /go/src/go-baser-server/template ./template
+
+EXPOSE 8888
+
+ENTRYPOINT ./gfva initdb && ./server

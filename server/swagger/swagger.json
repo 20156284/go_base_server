@@ -1,8 +1,8 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "This is a Go_Base_Server Server",
-        "title": "Go_Base_Server Swagger Docs",
+        "description": "This is a Gf-vue-admin Server",
+        "title": "Gf-vue-admin Swagger Docs",
         "contact": {},
         "license": {},
         "version": "1.0.0"

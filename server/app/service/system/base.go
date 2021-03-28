@@ -3,8 +3,6 @@ package service
 import (
 	"database/sql"
 	"fmt"
-	"github.com/flipped-aurora/gva/data"
-	dataGf "github.com/flipped-aurora/gva/data/gf"
 	"github.com/gogf/gf/database/gdb"
 	"github.com/gogf/gf/frame/g"
 	"github.com/mojocn/base64Captcha"
@@ -15,6 +13,7 @@ import (
 	workflow "go_base_server/app/model/workflow"
 	"go_base_server/library"
 	"go_base_server/library/config"
+	"go_base_server/library/data"
 	"go_base_server/library/gdbadapter"
 	"go_base_server/library/global"
 	"gorm.io/driver/mysql"
@@ -89,8 +88,9 @@ func (b *base) InitDB(info *request.InitDB) error {
 	}
 	b.linkGorm()
 	b.LinkGdb()
-	b.AutoMigrateTables()                                                                      // 初始化表
-	return dataGf.GfVueAdmin(data.Options{Gorm: global.Db}, data.Options{Viper: global.Viper}) // 初始化数据
+	b.AutoMigrateTables() // 初始化表
+	return data.Initialize()
+	//return dataGf.GfVueAdmin(data.Options{Gorm: global.Db}, data.Options{Viper: global.Viper}) // 初始化数据
 }
 
 //@description: gorm 同步模型 生成mysql表

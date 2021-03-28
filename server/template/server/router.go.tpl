@@ -1,10 +1,10 @@
 package router
 
 import (
-	"github.com/gogf/gf/net/ghttp"
 	"go_base_server/app/api"
 	"go_base_server/app/api/response"
 	"go_base_server/interfaces"
+	"github.com/gogf/gf/net/ghttp"
 )
 
 type {{.Abbreviation}} struct {

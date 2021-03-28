@@ -1,7 +1,7 @@
 # HTTP Server
-go_base_server:
+server:
   address: ':8888'
-  log-path: './logs/go_base_server'
+  log-path: './logs/server'
   dump-router-map: true
   access-log-enabled: true
   error-log-enabled: true
@@ -16,7 +16,7 @@ logger:
 # database 配置
 database:
   default: # 默认启动Mysql配置
-    link: "mysql:root:willzhang520@tcp(127.0.0.1:3306)/go_base_server"
+    link: "mysql:root:willzhang@tcp(127.0.0.1:3306)/go_base_server"
     debug: true
   logger: # Database logger.
     path: './logs/sql'

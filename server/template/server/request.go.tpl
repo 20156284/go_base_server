@@ -1,8 +1,8 @@
 package request
 
 import (
-    "github.com/gogf/gf/frame/g"
 	"go_base_server/app/model"
+	"github.com/gogf/gf/frame/g"
 )
 
 type Search{{.StructName}} struct{

@@ -20,7 +20,6 @@ func (a *Admin) TableName() string {
 	return "admins"
 }
 
-//@author: SliverHorn
 //@description: 密码检查(工具类)
 //@return: bool(false 校验失败, true 校验成功)
 func (a *Admin) CompareHashAndPassword(password string) bool {
@@ -30,7 +29,6 @@ func (a *Admin) CompareHashAndPassword(password string) bool {
 	return true
 }
 
-//@author: SliverHorn
 //@description: 加密密码(工具类)
 func (a *Admin) EncryptedPassword() error {
 	if byTes, err := bcrypt.GenerateFromPassword([]byte(a.Password), bcrypt.DefaultCost); err != nil { // 加密密码

@@ -91,8 +91,8 @@ func (a *generate) AddAutoMoveFile(data *model.TemplateData) {
 	if n <= 2 {
 		return
 	}
-	if strings.Contains(fileSlice[1], "go_base_server") {
-		if strings.Contains(fileSlice[n-2], "routers") {
+	if strings.Contains(fileSlice[1], "server") {
+		if strings.Contains(fileSlice[n-2], "router") {
 			data.AutoMoveFilePath = filepath.Join(dir, base)
 		} else if strings.Contains(fileSlice[n-2], "api") {
 			data.AutoMoveFilePath = filepath.Join("app", dir, base)
