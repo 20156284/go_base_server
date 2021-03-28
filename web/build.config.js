@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = {
-    title: 'GF-VUE-ADMIN',
+    title: 'GO_Base_Server',
     baseCdnUrl: '//cdn.staticfile.org',
     cdns: [
         /**

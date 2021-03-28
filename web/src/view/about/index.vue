@@ -3,41 +3,41 @@
     <el-row :gutter="10">
       <el-col :span="12">
         <el-card>
-          <div slot="header">gf-vue-admin</div>
+          <div slot="header">go_base_server</div>
           <div>
             <el-row>
               <el-col :span="8" :offset="8">
-                <a href="https://github.com/flipped-aurora/gf-vue-admin">
+                <a href="https://github.com/flipped-aurora/go_base_server">
                   <img
                     class="org-img dom-center"
-                    src="https://github.com/flipped-aurora/gf-vue-admin/raw/master/docs/gf-vue-admin-logo.png"
-                    alt="gf-vue-admin"
+                    src="https://github.com/flipped-aurora/go_base_server/raw/master/docs/go_base_server-logo.png"
+                    alt="go_base_server"
                   />
                 </a>
               </el-col>
             </el-row>
             <el-row :gutter="10">
               <el-col :span="8">
-                <a href="https://github.com/flipped-aurora/gf-vue-admin">
+                <a href="https://github.com/flipped-aurora/go_base_server">
                   <img
                     class="dom-center"
-                    src="https://img.shields.io/github/watchers/flipped-aurora/gf-vue-admin.svg?label=Watch"
+                    src="https://img.shields.io/github/watchers/flipped-aurora/go_base_server.svg?label=Watch"
                     alt=""
                   />
                 </a>
               </el-col>
               <el-col :span="8">
-                <a href="https://github.com/flipped-aurora/gf-vue-admin">
+                <a href="https://github.com/flipped-aurora/go_base_server">
                   <img
                     class="dom-center"
-                    src="https://img.shields.io/github/stars/flipped-aurora/gf-vue-admin.svg?style=social"
+                    src="https://img.shields.io/github/stars/flipped-aurora/go_base_server.svg?style=social"
                     alt=""/></a
               ></el-col>
               <el-col :span="8">
-                <a href="https://github.com/flipped-aurora/gf-vue-admin">
+                <a href="https://github.com/flipped-aurora/go_base_server">
                   <img
                     class="dom-center"
-                    src="https://img.shields.io/github/forks/flipped-aurora/gf-vue-admin.svg?label=Fork"
+                    src="https://img.shields.io/github/forks/flipped-aurora/go_base_server.svg?label=Fork"
                     alt=""/></a
               ></el-col>
             </el-row>
