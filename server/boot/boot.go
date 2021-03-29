@@ -28,6 +28,7 @@ func init() {
 	}
 	global.GormViper = _v
 	service.Base.LinkGdb()
+
 }
 
 func Initialize(path ...string) {
