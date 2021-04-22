@@ -60,7 +60,7 @@ func Unauthorized(r *ghttp.Request, code int, message string) {
 //@description: 用于定义自定义的登录成功回调函数
 func LoginResponse(r *ghttp.Request, code int, token string, expire time.Time) {
 	claims := r.GetParam("admin")
-	data, ok := claims.(*model.Admin)
+	data, ok := claims.(*model.Users)
 	r.SetParam("claims", data) // 设置参数保存到请求中
 	if !ok {
 		_ = r.Response.WriteJson(&response.Response{Code: 7, Message: "登录失败!"})
@@ -143,7 +143,7 @@ func Authenticator(r *ghttp.Request) (interface{}, error) {
 	if !service.Store.Verify(info.CaptchaId, info.Captcha, true) { // 验证码校对
 		return nil, errors.New("验证码错误! ")
 	}
-	if data, err := service.Admin.Login(&info); err != nil {
+	if data, err := service.Users.Login(&info); err != nil {
 		_ = r.Response.WriteJson(&response.Response{Code: 7, Error: err, Err: err.Error()})
 		r.ExitAll()
 		return nil, nil

@@ -162,7 +162,7 @@ func GetEnI18n() map[string]string {
 func GetChI18n() map[string]string {
 	return map[string]string{
 		"SuperAdmin": "超级管理员",
-		"OtherUser":  "QMPlusUser",
+		"OtherUser":  "你Will哥",
 
 		"UserLogin":                     "用户登录",
 		"UserRegister":                  "用户注册",

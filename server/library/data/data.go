@@ -12,7 +12,7 @@ func Initialize() error {
 	return interfaces.InitDb(
 		system.Api,
 		system.Menu,
-		system.Admin,
+		system.Users,
 		system.Casbin,
 		system.Authority,
 		system.Dictionary,

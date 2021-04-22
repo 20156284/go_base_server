@@ -5,7 +5,7 @@ import (
 	extra "go_base_server/router/extra"
 	"go_base_server/router/internal"
 	system "go_base_server/router/system"
-	workflow "go_base_server/router/workflow"
+	"go_base_server/router/workflow"
 )
 
 var Routers = new(routers)
@@ -22,7 +22,7 @@ func (r *routers) Init() {
 		system.NewApiRouter(private).Init()
 		system.NewMenuRouter(private).Init()
 		system.NewEmailRouter(private).Init()
-		system.NewAdminRouter(private).Init()
+		//system.NewAdminRouter(private).Init()
 		system.NewSystemRouter(public).Init()
 		system.NewCasbinRouter(private).Init()
 		system.NewGenerateRouter(private).Init()
@@ -31,11 +31,11 @@ func (r *routers) Init() {
 		system.NewJwtBlacklistRouter(private).Init()
 		system.NewOperationRecordRouter(private).Init()
 		system.NewDictionaryDetailRouter(private).Init()
-
 		extra.NewFileRouter(public).Init()
 		extra.NewExcelRouter(private).Init()
 		extra.NewSimpleUploaderRouter(private).Init()
-
 		workflow.NewWorkflowRouter(private).Init()
+
+		system.NewUsersRouter(public).Init()
 	}
 }

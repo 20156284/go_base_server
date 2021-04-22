@@ -100,7 +100,7 @@ func (a *authority) Delete(info *request.GetAuthorityId) error {
 	if !errors.Is(g.DB().Table(a._authority.TableName()).Where("parent_id = ?", info.AuthorityId).Struct(&entity), sql.ErrNoRows) {
 		return response.ErrorHasSonAuthority
 	}
-	var user model.Admin
+	var user model.Users
 	if !errors.Is(g.DB().Table(user.TableName()).Where(info.Condition()).Struct(&user), sql.ErrNoRows) {
 		return response.ErrorUseAuthority
 	}

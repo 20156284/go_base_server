@@ -18,7 +18,7 @@ type OperationRecord struct {
 	UserID  int   `json:"user_id" form:"user_id" gorm:"column:user_id;comment:用户id"`
 	Latency int64 `json:"latency" form:"latency" gorm:"column:latency;comment:延迟"`
 
-	Admin Admin `orm:"-" json:"user" gorm:"foreignkey:ID;references:UserID"`
+	Users Users `orm:"-" json:"user" gorm:"foreignkey:ID;references:UserID"`
 }
 
 func (o *OperationRecord) TableName() string {

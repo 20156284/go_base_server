@@ -24,7 +24,7 @@ type middleware struct {
 	id     int
 	err    error
 	body   []byte
-	result *model.Admin
+	result *model.Users
 }
 
 //@description: 验证token有效性
@@ -90,13 +90,13 @@ func (m *middleware) OperationRecord(r *ghttp.Request) {
 
 	if token, err := api.GfJWTMiddleware.ParseToken(r); err != nil { // 优先从jwt获取用户信息
 		id, _ := strconv.Atoi(r.Request.Header.Get("x-user-id"))
-		if m.result, m.err = service.Admin.FindAdminById(&request.GetById{Id: uint(id)}); m.err != nil {
+		if m.result, m.err = service.Users.FindAdminById(&request.GetById{Id: uint(id)}); m.err != nil {
 			g.Log().Error(`Function service.Admin.FindAdminById() Failed!`, g.Map{"err": m.err})
 		}
 	} else {
 		claims := gconv.Map(token.Claims)
 		uuid := gconv.String(claims["admin_uuid"])
-		if m.result, m.err = service.Admin.FindAdmin(&request.GetByUuid{Uuid: uuid}); m.err != nil {
+		if m.result, m.err = service.Users.FindAdmin(&request.GetByUuid{Uuid: uuid}); m.err != nil {
 			g.Log().Error(`Function service.Admin.FindAdmin() Failed!`, g.Map{"err": m.err})
 		}
 		m.id = int(m.result.ID)

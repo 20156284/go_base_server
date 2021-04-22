@@ -100,7 +100,7 @@ func (b *base) AutoMigrateTables() {
 	}
 	b.err = global.Db.AutoMigrate(
 		new(system.Api),
-		new(system.Admin),
+		new(system.Users),
 		new(system.Menu),
 		new(system.Authority),
 		new(system.Dictionary),

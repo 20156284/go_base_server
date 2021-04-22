@@ -14,9 +14,9 @@ type WorkflowMove struct {
 	BusinessType      string          `json:"businessType" gorm:"comment:业务标记"`
 	BusinessID        uint            `json:"businessID" gorm:"comment:业务ID"`
 	PromoterID        uint            `json:"promoterID" gorm:"comment:当前流转发起人"`
-	Promoter          model.Admin     `gorm:"<-:false" json:"promoter" gorm:"comment:当前流转发起人信息"`
+	Promoter          model.Users     `gorm:"<-:false" json:"promoter" gorm:"comment:当前流转发起人信息"`
 	OperatorID        uint            `json:"operatorID" gorm:"comment:当前流转操作人"`
-	Operator          model.Admin     `gorm:"<-:false" json:"operator" gorm:"comment:当前流转操作人信息"`
+	Operator          model.Users     `gorm:"<-:false" json:"operator" gorm:"comment:当前流转操作人信息"`
 	Action            string          `json:"action" gorm:"comment:工作流驱动事件"`
 	Param             string          `json:"param" gorm:"comment:工作流驱动参数"`
 	IsActive          bool            `json:"isActive" gorm:"comment:是否是活跃节点 "`

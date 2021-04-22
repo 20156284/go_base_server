@@ -3112,10 +3112,10 @@
         "model.Authority": {
             "type": "object",
             "properties": {
-                "CreatedAt": {
+                "CreateTime": {
                     "type": "string"
                 },
-                "UpdatedAt": {
+                "UpdateTime": {
                     "type": "string"
                 },
                 "authorityId": {
@@ -3220,13 +3220,13 @@
         "model.Menu": {
             "type": "object",
             "properties": {
-                "CreatedAt": {
+                "CreateTime": {
                     "type": "string"
                 },
                 "ID": {
                     "type": "integer"
                 },
-                "UpdatedAt": {
+                "UpdateTime": {
                     "type": "string"
                 },
                 "authoritys": {
@@ -3282,13 +3282,13 @@
         "model.MenuParameter": {
             "type": "object",
             "properties": {
-                "CreatedAt": {
+                "CreateTime": {
                     "type": "string"
                 },
                 "ID": {
                     "type": "integer"
                 },
-                "UpdatedAt": {
+                "UpdateTime": {
                     "type": "string"
                 },
                 "key": {
@@ -3368,13 +3368,13 @@
         "model.WorkflowEndPoint": {
             "type": "object",
             "properties": {
-                "CreatedAt": {
+                "CreateTime": {
                     "type": "string"
                 },
                 "ID": {
                     "type": "integer"
                 },
-                "UpdatedAt": {
+                "UpdateTime": {
                     "type": "string"
                 },
                 "index": {
@@ -3520,13 +3520,13 @@
         "model.WorkflowStartPoint": {
             "type": "object",
             "properties": {
-                "CreatedAt": {
+                "CreateTime": {
                     "type": "string"
                 },
                 "ID": {
                     "type": "integer"
                 },
-                "UpdatedAt": {
+                "UpdateTime": {
                     "type": "string"
                 },
                 "index": {
@@ -4128,13 +4128,13 @@
         "request.UpdateMenu": {
             "type": "object",
             "properties": {
-                "CreatedAt": {
+                "CreateTime": {
                     "type": "string"
                 },
                 "ID": {
                     "type": "integer"
                 },
-                "UpdatedAt": {
+                "UpdateTime": {
                     "type": "string"
                 },
                 "authoritys": {

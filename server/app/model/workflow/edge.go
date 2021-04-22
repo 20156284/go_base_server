@@ -7,9 +7,9 @@ import (
 
 type WorkflowEdge struct {
 	ID                  string `json:"id" form:"id" gorm:"comment:唯一标识;primaryKey;unique;not null"`
-	CreatedAt           time.Time
-	UpdatedAt           time.Time
-	DeletedAt           gorm.DeletedAt     `json:"-" gorm:"index"`
+	CreateTime          time.Time
+	UpdateTime          time.Time
+	DelTime             gorm.DeletedAt     `orm:"del_time" json:"-" gorm:"index"`
 	WorkflowProcessID   string             `json:"-" gorm:"comment:流程标识"`
 	Clazz               string             `json:"clazz" gorm:"comment:类型（线）"`
 	Source              string             `json:"source" gorm:"comment:起点节点"`

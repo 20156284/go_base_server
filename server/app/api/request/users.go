@@ -1,9 +1,20 @@
 package request
 
 import (
+	"github.com/gogf/gf/frame/g"
 	uuid "github.com/satori/go.uuid"
 	model "go_base_server/app/model/system"
 )
+
+type SearchUsers struct {
+	model.Users
+	PageInfo
+}
+
+func (s *SearchUsers) Search() g.Map {
+	condition := g.Map{}
+	return condition
+}
 
 type BaseAdmin struct {
 	Username    string `p:"username" v:"required|length:1,30#请输入用户名称|您输入用户名称长度非法"`
@@ -19,8 +30,8 @@ type Register struct {
 	AuthorityId string `p:"authorityId"`
 }
 
-func (r *Register) Create() *model.Admin {
-	return &model.Admin{
+func (r *Register) Create() *model.Users {
+	return &model.Users{
 		Uuid:        uuid.NewV4().String(),
 		Username:    r.Username,
 		Password:    r.Password,

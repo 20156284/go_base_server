@@ -6,19 +6,19 @@ import (
 	"go_base_server/library/global"
 )
 
-func (a *admin) A1Data() []string {
+func (a *users) A1Data() []string {
 	return []string{"ID", "用户UUID", "用户头像", "用户登录名", "用户登录密码", "用户昵称", "用户角色ID"}
 }
 
-func (a *admin) FilePath() string {
-	return "./public/excel/" + a._admin.TableName() + ".xlsx"
+func (a *users) FilePath() string {
+	return "./public/excel/" + a._users.TableName() + ".xlsx"
 }
 
-func (a *admin) DataList() [][]interface{} {
-	var admins []model.Admin
+func (a *users) DataList() [][]interface{} {
+	var admins []model.Users
 	switch global.Config.System.DbType {
 	case "gdb":
-		if err := g.DB().Table(a._admin.TableName()).Structs(&admins); err != nil {
+		if err := g.DB().Table(a._users.TableName()).Structs(&admins); err != nil {
 			return [][]interface{}{}
 		}
 	case "gorm":
@@ -44,6 +44,6 @@ func (a *admin) DataList() [][]interface{} {
 	return list2
 }
 
-func (a *admin) SheetName() string {
-	return a._admin.TableName()
+func (a *users) SheetName() string {
+	return a._users.TableName()
 }

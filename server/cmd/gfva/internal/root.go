@@ -29,7 +29,7 @@ var cfgFile string
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "gva",
+	Use:   "gbs",
 	Short: "这是一款amazing的终端工具",
 	Long: `欢迎使用gva终端工具
  ________ ____   ____   _____   

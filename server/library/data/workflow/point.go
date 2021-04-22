@@ -4,21 +4,20 @@ import (
 	model "go_base_server/app/model/workflow"
 	"go_base_server/library/global"
 	"gorm.io/gorm"
-	"time"
 )
 
 var (
 	EndPoint   = new(end)
 	StartPoint = new(start)
 	ends       = []model.WorkflowEndPoint{
-		{WorkflowEdgeID: "flow1604985849039", Model: global.Model{ID: 31, CreatedAt: time.Now(), UpdatedAt: time.Now()}, X: 270, Y: 202, Index: 3},
-		{WorkflowEdgeID: "flow1604985879574", Model: global.Model{ID: 32, CreatedAt: time.Now(), UpdatedAt: time.Now()}, X: 518, Y: 83.5, Index: 2},
-		{WorkflowEdgeID: "flow1604985881207", Model: global.Model{ID: 33, CreatedAt: time.Now(), UpdatedAt: time.Now()}, X: 517.5, Y: 302, Index: 2},
+		{WorkflowEdgeID: "flow1604985849039", Model: global.Model{ID: 31}, X: 270, Y: 202, Index: 3},
+		{WorkflowEdgeID: "flow1604985879574", Model: global.Model{ID: 32}, X: 518, Y: 83.5, Index: 2},
+		{WorkflowEdgeID: "flow1604985881207", Model: global.Model{ID: 33}, X: 517.5, Y: 302, Index: 2},
 	}
 	starts = []model.WorkflowStartPoint{
-		{WorkflowEdgeID: "flow1604985849039", Model: global.Model{ID: 31, CreatedAt: time.Now(), UpdatedAt: time.Now()}, X: 137, Y: 201, Index: 1},
-		{WorkflowEdgeID: "flow1604985879574", Model: global.Model{ID: 32, CreatedAt: time.Now(), UpdatedAt: time.Now()}, X: 320.5, Y: 174, Index: 0},
-		{WorkflowEdgeID: "flow1604985881207", Model: global.Model{ID: 33, CreatedAt: time.Now(), UpdatedAt: time.Now()}, X: 320.5, Y: 230, Index: 2},
+		{WorkflowEdgeID: "flow1604985849039", Model: global.Model{ID: 31}, X: 137, Y: 201, Index: 1},
+		{WorkflowEdgeID: "flow1604985879574", Model: global.Model{ID: 32}, X: 320.5, Y: 174, Index: 0},
+		{WorkflowEdgeID: "flow1604985881207", Model: global.Model{ID: 33}, X: 320.5, Y: 230, Index: 2},
 	}
 )
 
