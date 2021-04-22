@@ -1,5 +1,6 @@
 import service from '@/utils/request'
 
+//查看代码
 export const preview = (data) => {
     return service({
         url: "/autoCode/preview",
@@ -8,6 +9,7 @@ export const preview = (data) => {
     })
 }
 
+//创建代码
 export const createTemp = (data) => {
     return service({
         url: "/autoCode/createTemp",

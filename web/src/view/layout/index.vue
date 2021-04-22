@@ -4,8 +4,7 @@
       <el-row :class="[isShadowBg?'shadowBg':'']" @click.native="changeShadow()"></el-row>
       <el-aside class="main-cont main-left">
         <div class="tilte">
-          <img alt class="logoimg" src="~@/assets/nav_logo.png" />
-          <h2 class="tit-text" v-if="isSider">Gf-Vue-Admin</h2>
+          <h2 class="tit-text" v-if="isSider">Go_Base_Server</h2>
         </div>
         <Aside class="aside" />
       </el-aside>
