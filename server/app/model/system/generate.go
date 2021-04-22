@@ -11,6 +11,7 @@ type AutoCode struct {
 	TableName          string  `p:"tableName" json:"tableName"`
 	StructName         string  `p:"structName" json:"structName"`
 	PackageName        string  `p:"packageName" json:"packageName"`
+	FieldName          string  `p:"fieldName" json:"fieldName"`
 	Description        string  `p:"description" json:"description"`
 	Abbreviation       string  `p:"abbreviation" json:"abbreviation"`
 	AutoMoveFile       bool    `p:"autoMoveFile" json:"autoMoveFile"`
@@ -33,6 +34,7 @@ type Field struct {
 
 type TemplateData struct {
 	Template         *template.Template
+	FieldName        string // 文件名称
 	LocationPath     string // 模板位置路径
 	AutoCodePath     string // 生成代码文件路径
 	AutoMoveFilePath string // 移动代码路径

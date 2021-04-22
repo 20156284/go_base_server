@@ -68,8 +68,18 @@ func (a *generate) GetNeedList(autoCode *model.AutoCode) (dataList []model.Templ
 		if lastSeparator := strings.LastIndex(trimBase, "/"); lastSeparator != -1 {
 			origFileName := strings.TrimSuffix(trimBase[lastSeparator+1:], ".tpl")
 			firstDot := strings.Index(origFileName, ".")
+			//if firstDot != -1 {
+			//	dataList[index].AutoCodePath = filepath.Join(constant.AutoPath, trimBase[:lastSeparator], autoCode.PackageName, origFileName[:firstDot], autoCode.PackageName+origFileName[firstDot:])
+			//}
+
+			//根据业务类型替换成相对应的名称 驼峰命名 包名_业务类型.文件类型
 			if firstDot != -1 {
-				dataList[index].AutoCodePath = filepath.Join(constant.AutoPath, trimBase[:lastSeparator], autoCode.PackageName, origFileName[:firstDot], autoCode.PackageName+origFileName[firstDot:])
+				dataList[index].FieldName = autoCode.PackageName + "_" + origFileName[:firstDot]
+				var address = origFileName[firstDot:]
+				if address == ".vue" {
+					dataList[index].FieldName = autoCode.PackageName + "_api"
+				}
+				dataList[index].AutoCodePath = filepath.Join(constant.AutoPath, trimBase[:lastSeparator], autoCode.PackageName, origFileName[:firstDot], autoCode.PackageName+"_"+origFileName[:firstDot]+origFileName[firstDot:])
 			}
 		}
 
@@ -107,9 +117,11 @@ func (a *generate) AddAutoMoveFile(data *model.TemplateData) {
 		if strings.Contains(fileSlice[n-1], "js") {
 			data.AutoMoveFilePath = filepath.Join("../", "web", "src", dir, base)
 		} else if strings.Contains(fileSlice[n-2], "workflowForm") {
-			data.AutoMoveFilePath = filepath.Join("../", "web", "src", "view", filepath.Base(filepath.Dir(filepath.Dir(data.AutoCodePath))), strings.TrimSuffix(base, filepath.Ext(base))+"WorkflowForm.vue")
+			//data.AutoMoveFilePath = filepath.Join("../", "web", "src", "view", filepath.Base(filepath.Dir(filepath.Dir(data.AutoCodePath))), strings.TrimSuffix(base, filepath.Ext(base))+"_workflow_form.vue")
+			data.AutoMoveFilePath = filepath.Join("../", "web", "src", "view", filepath.Base(filepath.Dir(filepath.Dir(data.AutoCodePath))), base)
 		} else if strings.Contains(fileSlice[n-2], "form") {
-			data.AutoMoveFilePath = filepath.Join("../", "web", "src", "view", filepath.Base(filepath.Dir(filepath.Dir(data.AutoCodePath))), strings.TrimSuffix(base, filepath.Ext(base))+"Form.vue")
+			//data.AutoMoveFilePath = filepath.Join("../", "web", "src", "view", filepath.Base(filepath.Dir(filepath.Dir(data.AutoCodePath))), strings.TrimSuffix(base, filepath.Ext(base))+"_form.vue")
+			data.AutoMoveFilePath = filepath.Join("../", "web", "src", "view", filepath.Base(filepath.Dir(filepath.Dir(data.AutoCodePath))), base)
 		} else if strings.Contains(fileSlice[n-2], "table") {
 			data.AutoMoveFilePath = filepath.Join("../", "web", "src", "view", filepath.Base(filepath.Dir(filepath.Dir(data.AutoCodePath))), base)
 		}

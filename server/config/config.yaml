@@ -1,6 +1,6 @@
 # HTTP Server
 server:
-  address: ':8888'
+  address: ':8989'
   log-path: './logs/server'
   dump-router-map: true
   access-log-enabled: true

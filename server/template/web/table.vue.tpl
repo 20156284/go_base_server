@@ -128,7 +128,7 @@ import {
     update{{.StructName}},
     find{{.StructName}},
     get{{.StructName}}List
-} from "@/api/{{.PackageName}}";  //  此处请自行替换地址
+} from "@/api/{{.FieldName}}";  //  此处请自行替换地址
 import { formatTimeToStr } from "@/utils/date";
 import infoList from "@/mixins/infoList";
 export default {

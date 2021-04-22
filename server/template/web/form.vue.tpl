@@ -40,7 +40,7 @@ import {
     create{{.StructName}},
     update{{.StructName}},
     find{{.StructName}}
-} from "@/api/{{.PackageName}}";  //  此处请自行替换地址
+} from "@/api/{{.FieldName}}";  //  此处请自行替换地址
 import infoList from "@/mixins/infoList";
 export default {
   name: "{{.StructName}}",

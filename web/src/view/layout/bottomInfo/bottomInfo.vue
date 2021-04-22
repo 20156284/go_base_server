@@ -3,12 +3,12 @@
     <div>
       <span>Powered by</span>
       <span>
-      <a href="https://github.com/flipped-aurora/go_base_server">go_base_server</a>
+      <a href="https://github.com/20156284/go_base_server"  target="_blank">go_base_server</a>
       </span>
       <el-divider direction="vertical"></el-divider>
       <span>Copyright</span>
       <span>
-      <a href="https://github.com/flipped-aurora">flipped-aurora团队</a>
+      <a href="https://github.com/flipped-aurora">Will</a>
       </span>
     </div>
   </div>

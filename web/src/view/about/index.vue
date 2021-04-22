@@ -4,93 +4,10 @@
       <el-col :span="12">
         <el-card>
           <div slot="header">go_base_server</div>
-          <div>
-            <el-row>
-              <el-col :span="8" :offset="8">
-                <a href="https://github.com/flipped-aurora/go_base_server">
-                  <img
-                    class="org-img dom-center"
-                    src="https://github.com/flipped-aurora/go_base_server/raw/master/docs/go_base_server-logo.png"
-                    alt="go_base_server"
-                  />
-                </a>
-              </el-col>
-            </el-row>
-            <el-row :gutter="10">
-              <el-col :span="8">
-                <a href="https://github.com/flipped-aurora/go_base_server">
-                  <img
-                    class="dom-center"
-                    src="https://img.shields.io/github/watchers/flipped-aurora/go_base_server.svg?label=Watch"
-                    alt=""
-                  />
-                </a>
-              </el-col>
-              <el-col :span="8">
-                <a href="https://github.com/flipped-aurora/go_base_server">
-                  <img
-                    class="dom-center"
-                    src="https://img.shields.io/github/stars/flipped-aurora/go_base_server.svg?style=social"
-                    alt=""/></a
-              ></el-col>
-              <el-col :span="8">
-                <a href="https://github.com/flipped-aurora/go_base_server">
-                  <img
-                    class="dom-center"
-                    src="https://img.shields.io/github/forks/flipped-aurora/go_base_server.svg?label=Fork"
-                    alt=""/></a
-              ></el-col>
-            </el-row>
-          </div>
-        </el-card>
-        <el-card style="margin-top: 20px">
-          <div slot="header">flipped-aurora团队</div>
-          <div>
-            <el-row>
-              <el-col :span="8" :offset="8">
-                <a href="https://github.com/flipped-aurora">
-                  <img
-                    class="org-img dom-center"
-                    src="@/assets/flipped-aurora.png"
-                    alt="flipped-aurora"
-                  />
-                </a>
-              </el-col>
-            </el-row>
-            <el-row style="margin-left: 40px" :gutter="20">
-              <template v-for="(item, index) in members">
-                <el-col :span="8" :key="index">
-                  <a :href="item.html_url">
-                    <img class="avatar-img" :src="item.avatar_url" />
-                    <a class="author-name" style="">{{ item.login }}</a>
-                  </a>
-                </el-col>
-              </template>
-            </el-row>
-          </div>
+         
         </el-card>
       </el-col>
-      <el-col :span="12">
-        <el-card>
-          <div slot="header">
-            提交记录
-          </div>
-          <div>
-            <Timeline
-              :timeline-items="dataTimeline"
-              :message-when-no-items="messageWhenNoItems"
-              :uniqueTimeline="true"
-              :unique-year="true"
-              :show-day-and-month="true"
-              order="desc"
-              dateLocale="zh-CN"
-            />
-          </div>
-          <el-button class="load-more" @click="loadMore" type="text"
-            >Load more</el-button
-          >
-        </el-card>
-      </el-col>
+      
     </el-row>
   </div>
 </template>

@@ -1,10 +1,6 @@
 mysql:
   config: charset=utf8mb4&parseTime=True&loc=Local
-  db-name: go_base_server
-  log-mode: false
-  log-zap: ""
-  max-idle-conns: 10
-  max-open-conns: 100
+  db-name: lankai
   password: willzhang
   path: 127.0.0.1:3306
   username: root

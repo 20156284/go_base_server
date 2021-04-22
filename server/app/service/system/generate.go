@@ -59,10 +59,14 @@ func (s *generate) Create(info *model.AutoCode) error {
 	}
 
 	// 生成文件
-	for _, value := range s.data {
+	for index, value := range s.data {
 		if s.file, s.err = os.OpenFile(value.AutoCodePath, os.O_CREATE|os.O_WRONLY, 0755); s.err != nil {
 			return s.err
 		}
+
+		//替换文文件名
+		info.FieldName = s.data[index].FieldName
+
 		if s.err = value.Template.Execute(s.file, info); s.err != nil {
 			return s.err
 		}
