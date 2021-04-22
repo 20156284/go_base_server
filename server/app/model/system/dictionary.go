@@ -1,9 +1,7 @@
 package model
 
-import "go_base_server/library/global"
-
 type Dictionary struct {
-	global.Model
+	ID                uint               `orm:"id" json:"ID" gorm:"primarykey"`
 	Name              string             `orm:"name"  json:"name" form:"name" gorm:"column:name;comment:字典名（中）"`
 	Type              string             `orm:"type" json:"type" form:"type" gorm:"column:type;comment:字典名（英）"`
 	Status            *bool              `orm:"status" json:"status" form:"status" gorm:"column:status;comment:状态"`

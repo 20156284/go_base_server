@@ -1,9 +1,7 @@
 package model
 
-import "go_base_server/library/global"
-
 type JwtBlacklist struct {
-	global.Model
+	ID  uint   `orm:"id" json:"ID" gorm:"primarykey"`
 	Jwt string `gorm:"type:text;comment:jwt"`
 }
 

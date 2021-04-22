@@ -6,9 +6,9 @@ import (
 )
 
 type Authority struct {
-	CreateTime time.Time      `orm:"create_time" json:"CreateTime"`
-	UpdateTime time.Time      `orm:"update_time" json:"UpdateTime"`
-	DelTime    gorm.DeletedAt `orm:"del_time" json:"-" gorm:"index"`
+	CreatedAt time.Time      `orm:"created_at" json:"CreatedAt"`
+	UpdatedAt time.Time      `orm:"updated_at" json:"UpdatedAt"`
+	DeletedAt gorm.DeletedAt `orm:"deleted_at" json:"-" gorm:"index"`
 
 	ParentId      string `orm:"parent_id" json:"parentId" gorm:"comment:父角色ID"`
 	AuthorityId   string `orm:"authority_id" json:"authorityId" gorm:"not null;unique;primary_key;comment:角色ID;size:90"`

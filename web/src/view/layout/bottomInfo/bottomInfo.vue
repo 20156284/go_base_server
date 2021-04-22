@@ -3,7 +3,7 @@
     <div>
       <span>Powered by</span>
       <span>
-      <a href="https://github.com/20156284/go_base_server"  target="_blank">go_base_server</a>
+      <a href="https://github.com/20156284/go_base_server"  target="_blank">Go_Base_Server</a>
       </span>
       <el-divider direction="vertical"></el-divider>
       <span>Copyright</span>

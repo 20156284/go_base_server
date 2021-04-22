@@ -15,7 +15,7 @@ limitations under the License.
 */
 package main
 
-import "go_base_server/cmd/gfva/internal"
+import "go_base_server/cmd/gbs/internal"
 
 func main() {
 	internal.Execute()

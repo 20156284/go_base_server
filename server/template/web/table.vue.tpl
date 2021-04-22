@@ -50,7 +50,7 @@
     >
     <el-table-column type="selection" width="55"></el-table-column>
     <el-table-column label="日期" width="180">
-         <template slot-scope="scope">{{ "{{scope.row.CreateTime|formatDate}}" }}</template>
+         <template slot-scope="scope">{{ "{{scope.row.CreatedAt|formatDate}}" }}</template>
     </el-table-column>
     {{range .Fields}}
     {{- if .DictType}}

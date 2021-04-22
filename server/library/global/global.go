@@ -41,14 +41,14 @@ func (t _gtime) GormDataType() string {
 
 //type Model struct {
 //	Id       uint        `orm:"id,primary"   json:"ID"`        // 自增ID
-//	CreateAt *_gtime `orm:"create_at"    json:"CreateTime"` // 创建时间
-//	UpdateAt *_gtime `orm:"update_at"    json:"UpdateTime"` // 更新时间
-//	DeleteAt *_gtime `orm:"delete_at"    json:"DelTime"` // 删除时间
+//	CreateAt *_gtime `orm:"create_at"    json:"CreatedAt"` // 创建时间
+//	UpdateAt *_gtime `orm:"update_at"    json:"UpdatedAt"` // 更新时间
+//	DeleteAt *_gtime `orm:"delete_at"    json:"DeletedAt"` // 删除时间
 //}
 
 type Model struct {
-	ID uint `orm:"id" json:"ID" gorm:"primarykey"`
-	//CreateTime time.Time      `orm:"create_time" json:"CreateTime"`
-	//UpdateTime time.Time      `orm:"update_time" json:"UpdateTime"`
-	//DelTime gorm.DelTime `orm:"del_time" json:"-" gorm:"index"`
+	ID        uint           `orm:"id" json:"ID" gorm:"primarykey"`
+	CreatedAt time.Time      `orm:"created_at" json:"CreatedAt" gorm:"column:created_at;comment:创建时间;type:datetime;"`
+	UpdatedAt time.Time      `orm:"updated_at" json:"UpdatedAt" gorm:"column:updated_at;comment:修改时间;type:datetime;"`
+	DeletedAt gorm.DeletedAt `orm:"deleted_at" json:"-"  gorm:"index;column:deleted_at;comment:删除时间;type:datetime;"`
 }

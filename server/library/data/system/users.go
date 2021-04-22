@@ -16,8 +16,8 @@ type user struct{}
 //@description: admins 表数据初始化
 func (u *user) Init() error {
 	users := []model.Users{
-		{ID: 1, CreateTime: time.Now(), UpdateTim: time.Now(), Uuid: uuid.NewV4().String(), Username: "admin", Password: "123456", Nickname: I18nHash["SuperAdmin"], Avatar: "http://qmplusimg.henrongyi.top/gva_header.jpg", AuthorityId: "888"},
-		{ID: 2, CreateTime: time.Now(), UpdateTim: time.Now(), Uuid: uuid.NewV4().String(), Username: "a303176530", Password: "123456", Nickname: I18nHash["OtherUser"], Avatar: "http://qmplusimg.henrongyi.top/1572075907logo.png", AuthorityId: "9528"},
+		{Model: global.Model{ID: 1, CreatedAt: time.Now(), UpdatedAt: time.Now()}, Uuid: uuid.NewV4().String(), Username: "admin", Password: "123456", Nickname: I18nHash["SuperAdmin"], Avatar: "http://qmplusimg.henrongyi.top/gva_header.jpg", AuthorityId: "888"},
+		{Model: global.Model{ID: 2, CreatedAt: time.Now(), UpdatedAt: time.Now()}, Uuid: uuid.NewV4().String(), Username: "a303176530", Password: "123456", Nickname: I18nHash["OtherUser"], Avatar: "http://qmplusimg.henrongyi.top/1572075907logo.png", AuthorityId: "9528"},
 	}
 	return global.Db.Transaction(func(tx *gorm.DB) error {
 		for i := range users {

@@ -22,7 +22,6 @@ func (r *routers) Init() {
 		system.NewApiRouter(private).Init()
 		system.NewMenuRouter(private).Init()
 		system.NewEmailRouter(private).Init()
-		//system.NewAdminRouter(private).Init()
 		system.NewSystemRouter(public).Init()
 		system.NewCasbinRouter(private).Init()
 		system.NewGenerateRouter(private).Init()

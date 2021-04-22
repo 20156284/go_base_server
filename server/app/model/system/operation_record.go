@@ -1,11 +1,7 @@
 package model
 
-import (
-	"go_base_server/library/global"
-)
-
 type OperationRecord struct {
-	global.Model
+	ID           uint   `orm:"id" json:"ID" gorm:"primarykey"`
 	Ip           string `json:"ip" form:"ip" gorm:"column:ip;comment:请求ip"`
 	Path         string `json:"path" form:"path" gorm:"column:path;comment:请求路径"`
 	Agent        string `json:"agent" form:"agent" gorm:"column:agent;comment:代理"`

@@ -3112,10 +3112,10 @@
         "model.Authority": {
             "type": "object",
             "properties": {
-                "CreateTime": {
+                "CreatedAt": {
                     "type": "string"
                 },
-                "UpdateTime": {
+                "UpdatedAt": {
                     "type": "string"
                 },
                 "authorityId": {
@@ -3220,13 +3220,13 @@
         "model.Menu": {
             "type": "object",
             "properties": {
-                "CreateTime": {
+                "CreatedAt": {
                     "type": "string"
                 },
                 "ID": {
                     "type": "integer"
                 },
-                "UpdateTime": {
+                "UpdatedAt": {
                     "type": "string"
                 },
                 "authoritys": {
@@ -3282,13 +3282,13 @@
         "model.MenuParameter": {
             "type": "object",
             "properties": {
-                "CreateTime": {
+                "CreatedAt": {
                     "type": "string"
                 },
                 "ID": {
                     "type": "integer"
                 },
-                "UpdateTime": {
+                "UpdatedAt": {
                     "type": "string"
                 },
                 "key": {
@@ -3314,7 +3314,7 @@
                 "conditionExpression": {
                     "type": "string"
                 },
-                "createdAt": {
+                "CreatedAt": {
                     "type": "string"
                 },
                 "description": {
@@ -3360,7 +3360,7 @@
                 "targetAnchor": {
                     "type": "integer"
                 },
-                "updatedAt": {
+                "UpdatedAt": {
                     "type": "string"
                 }
             }
@@ -3368,13 +3368,13 @@
         "model.WorkflowEndPoint": {
             "type": "object",
             "properties": {
-                "CreateTime": {
+                "CreatedAt": {
                     "type": "string"
                 },
                 "ID": {
                     "type": "integer"
                 },
-                "UpdateTime": {
+                "UpdatedAt": {
                     "type": "string"
                 },
                 "index": {
@@ -3406,7 +3406,7 @@
                 "content": {
                     "type": "string"
                 },
-                "createdAt": {
+                "CreatedAt": {
                     "type": "string"
                 },
                 "cycle": {
@@ -3448,7 +3448,7 @@
                 "type": {
                     "type": "string"
                 },
-                "updatedAt": {
+                "UpdatedAt": {
                     "type": "string"
                 },
                 "view": {
@@ -3477,7 +3477,7 @@
                 "clazz": {
                     "type": "string"
                 },
-                "createdAt": {
+                "CreatedAt": {
                     "type": "string"
                 },
                 "description": {
@@ -3509,7 +3509,7 @@
                         "$ref": "#/definitions/model.WorkflowNode"
                     }
                 },
-                "updatedAt": {
+                "UpdatedAt": {
                     "type": "string"
                 },
                 "view": {
@@ -3520,13 +3520,13 @@
         "model.WorkflowStartPoint": {
             "type": "object",
             "properties": {
-                "CreateTime": {
+                "CreatedAt": {
                     "type": "string"
                 },
                 "ID": {
                     "type": "integer"
                 },
-                "UpdateTime": {
+                "UpdatedAt": {
                     "type": "string"
                 },
                 "index": {
@@ -3932,7 +3932,7 @@
                 "clazz": {
                     "type": "string"
                 },
-                "createdAt": {
+                "CreatedAt": {
                     "type": "string"
                 },
                 "description": {
@@ -3970,7 +3970,7 @@
                 "pageSize": {
                     "type": "integer"
                 },
-                "updatedAt": {
+                "UpdatedAt": {
                     "type": "string"
                 },
                 "view": {
@@ -4128,13 +4128,13 @@
         "request.UpdateMenu": {
             "type": "object",
             "properties": {
-                "CreateTime": {
+                "CreatedAt": {
                     "type": "string"
                 },
                 "ID": {
                     "type": "integer"
                 },
-                "UpdateTime": {
+                "UpdatedAt": {
                     "type": "string"
                 },
                 "authoritys": {

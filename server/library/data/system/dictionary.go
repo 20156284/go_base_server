@@ -25,12 +25,12 @@ type dictionary struct{}
 //@description: dictionaries 表数据初始化
 func (d *dictionary) Init() error {
 	dictionaries := []model.Dictionary{
-		{Model: global.Model{ID: 1}, Name: I18nHash["Sex"], Type: "sex", Status: _true, Desc: I18nHash["SexDictionary"]},
-		{Model: global.Model{ID: 2}, Name: I18nHash["DBTypeInt"], Type: "int", Status: _true, Desc: I18nHash["DBTypeInt"]},
-		{Model: global.Model{ID: 3}, Name: I18nHash["DBTypeDateTime"], Type: "time.Time", Status: _true, Desc: I18nHash["DBTypeDateTime"]},
-		{Model: global.Model{ID: 4}, Name: I18nHash["DBTypeFloat"], Type: "float64", Status: _true, Desc: I18nHash["DBTypeFloat"]},
-		{Model: global.Model{ID: 5}, Name: I18nHash["DBTypeString"], Type: "string", Status: _true, Desc: I18nHash["DBTypeString"]},
-		{Model: global.Model{ID: 6}, Name: I18nHash["DBTypeBool"], Type: "bool", Status: _true, Desc: I18nHash["DBTypeBool"]},
+		{ID: 1, Name: I18nHash["Sex"], Type: "sex", Status: _true, Desc: I18nHash["SexDictionary"]},
+		{ID: 2, Name: I18nHash["DBTypeInt"], Type: "int", Status: _true, Desc: I18nHash["DBTypeInt"]},
+		{ID: 3, Name: I18nHash["DBTypeDateTime"], Type: "time.Time", Status: _true, Desc: I18nHash["DBTypeDateTime"]},
+		{ID: 4, Name: I18nHash["DBTypeFloat"], Type: "float64", Status: _true, Desc: I18nHash["DBTypeFloat"]},
+		{ID: 5, Name: I18nHash["DBTypeString"], Type: "string", Status: _true, Desc: I18nHash["DBTypeString"]},
+		{ID: 6, Name: I18nHash["DBTypeBool"], Type: "bool", Status: _true, Desc: I18nHash["DBTypeBool"]},
 	}
 	return global.Db.Transaction(func(tx *gorm.DB) error {
 		if tx.Where("id IN ?", []int{1, 6}).Find(&[]model.Dictionary{}).RowsAffected == 2 {

@@ -7,9 +7,9 @@ import (
 
 type WorkflowProcess struct {
 	ID          string `json:"id" form:"id" gorm:"comment:流程标识;primaryKey;unique;not null"`
-	CreateTime  time.Time
-	UpdateTime  time.Time
-	DelTime     gorm.DeletedAt `json:"-" gorm:"index"`
+	CreatedAt   time.Time
+	UpdatedAt   time.Time
+	DeletedAt   gorm.DeletedAt `json:"-" gorm:"index"`
 	Name        string         `json:"name" gorm:"comment:流程名称"`
 	Category    string         `json:"category" gorm:"comment:分类"`
 	Clazz       string         `json:"clazz" gorm:"comment:类型"`

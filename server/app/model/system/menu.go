@@ -2,22 +2,17 @@ package model
 
 import (
 	"go_base_server/library/global"
-	"gorm.io/gorm"
-	"time"
 )
 
 type Menu struct {
 	global.Model
-	CreateTime time.Time      `orm:"create_time" json:"CreateTime"`
-	UpdateTime time.Time      `orm:"update_time" json:"UpdateTime"`
-	DelTime    gorm.DeletedAt `orm:"del_time" json:"-" gorm:"index"`
-	Path       string         `json:"path" gorm:"comment:路由path"`
-	Name       string         `json:"name" gorm:"comment:路由name"`
-	ParentId   string         `json:"parentId" gorm:"comment:父菜单ID"`
-	Component  string         `json:"component" gorm:"comment:对应前端文件路径"`
-	Sort       int            `json:"sort" gorm:"comment:排序标记"`
-	MenuLevel  uint           `json:"-"`
-	Hidden     bool           `json:"hidden" gorm:"comment:是否在列表隐藏"`
+	Path      string `json:"path" gorm:"comment:路由path"`
+	Name      string `json:"name" gorm:"comment:路由name"`
+	ParentId  string `json:"parentId" gorm:"comment:父菜单ID"`
+	Component string `json:"component" gorm:"comment:对应前端文件路径"`
+	Sort      int    `json:"sort" gorm:"comment:排序标记"`
+	MenuLevel uint   `json:"-"`
+	Hidden    bool   `json:"hidden" gorm:"comment:是否在列表隐藏"`
 
 	Meta `json:"meta" gorm:"comment:附加属性"`
 
