@@ -1,6 +1,6 @@
 mysql:
   config: charset=utf8mb4&parseTime=True&loc=Local
-  db-name: lankai
+  db-name: go_base_server
   password: willzhang
   path: 127.0.0.1:3306
   username: root
