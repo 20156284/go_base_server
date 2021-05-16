@@ -96,7 +96,7 @@ func (u *users) SetAdminInfo(info *request.UpdateAdmin) (result *model.Users, er
 }
 
 //@description: 设置管理员信息
-func (u *users) Login(info *request.AdminLogin) (result *model.Users, err error) {
+func (u *users) Login(info *request.UserLogin) (result *model.Users, err error) {
 	var entity model.Users
 	if err = g.DB().Table(u._users.TableName()).Where(g.Map{"username": info.Username}).Struct(&entity); err != nil {
 		return &entity, response.ErrorUserNoExist

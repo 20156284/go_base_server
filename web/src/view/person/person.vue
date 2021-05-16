@@ -4,29 +4,38 @@
       <el-col :span="6">
         <div class="fl-left avatar-box">
           <div class="user-card">
-              <div class="user-headpic-update" :style="{ 'background-image': `url(${(userInfo.headerImg && userInfo.headerImg.slice(0, 4) !== 'http')?path+userInfo.headerImg:userInfo.headerImg})`,'background-repeat':'no-repeat','background-size':'cover' }" >
+            <div
+              class="user-headpic-update"
+              :style="{
+                'background-image': `url(${
+                  userInfo.headerImg &&
+                  userInfo.headerImg.slice(0, 4) !== 'http'
+                    ? path + userInfo.headerImg
+                    : userInfo.headerImg
+                })`,
+                'background-repeat': 'no-repeat',
+                'background-size': 'cover',
+              }"
+            >
               <span class="update" @click="openChooseImg">
                 <i class="el-icon-edit"></i>
-                重新上传</span>
-              </div>
+                重新上传</span
+              >
+            </div>
             <div class="user-personality">
-              <p class="nickname">{{userInfo.nickName}}</p>
-              <p class="person-info">这个家伙很懒，什么都没有留下</p>
+              <p class="nickname">{{ userInfo.nickName }}</p>
+              <p class="person-info">浪费时间是多么的可耻</p>
             </div>
             <div class="user-information">
               <ul>
+                <li><i class="el-icon-user"></i>{{ userInfo.nickName }}</li>
                 <li>
-                   <i class="el-icon-user"></i>{{userInfo.nickName}}
+                  <i class="el-icon-data-analysis"></i>苦逼的开发人员呀 加油咯
                 </li>
                 <li>
-                  <i class="el-icon-data-analysis"></i>北京反转极光科技有限公司-技术部-前端事业群
+                  <i class="el-icon-video-camera-solid"></i>中国·深圳市·福田区
                 </li>
-                <li>
-                  <i class="el-icon-video-camera-solid"></i>中国·北京市·朝阳区
-                </li>
-                <li>
-                  <i class="el-icon-medal-1"></i>goLang/JavaScript/Vue/Gorm
-                </li>
+                <li><i class="el-icon-medal-1"></i>goLang/Flutter/Vue/Gorm</li>
               </ul>
             </div>
           </div>
@@ -40,14 +49,14 @@
                 <li>
                   <p class="title">密保手机</p>
                   <p class="desc">
-                    已绑定手机:1245678910
+                    已绑定手机:13800013800
                     <a href="#">立即修改</a>
                   </p>
                 </li>
                 <li>
                   <p class="title">密保邮箱</p>
                   <p class="desc">
-                    已绑定邮箱：go_base_server@google.com.cn
+                    已绑定邮箱：willzh@live.cn
                     <a href="#">立即修改</a>
                   </p>
                 </li>
@@ -62,7 +71,7 @@
                   <p class="title">修改密码</p>
                   <p class="desc">
                     修改个人密码
-                    <a href="#" @click="showPassword=true">修改密码</a>
+                    <a href="#" @click="showPassword = true">修改密码</a>
                   </p>
                 </li>
               </ul>
@@ -74,8 +83,18 @@
 
     <ChooseImg ref="chooseImg" @enter-img="enterImg" />
 
-    <el-dialog :visible.sync="showPassword" @close="clearPassword" title="修改密码" width="360px">
-      <el-form :model="pwdModify" :rules="rules" label-width="80px" ref="modifyPwdForm">
+    <el-dialog
+      :visible.sync="showPassword"
+      @close="clearPassword"
+      title="修改密码"
+      width="360px"
+    >
+      <el-form
+        :model="pwdModify"
+        :rules="rules"
+        label-width="80px"
+        ref="modifyPwdForm"
+      >
         <el-form-item :minlength="6" label="原密码" prop="password">
           <el-input show-password v-model="pwdModify.password"></el-input>
         </el-form-item>
@@ -83,11 +102,14 @@
           <el-input show-password v-model="pwdModify.newPassword"></el-input>
         </el-form-item>
         <el-form-item :minlength="6" label="确认密码" prop="confirmPassword">
-          <el-input show-password v-model="pwdModify.confirmPassword"></el-input>
+          <el-input
+            show-password
+            v-model="pwdModify.confirmPassword"
+          ></el-input>
         </el-form-item>
       </el-form>
       <div class="dialog-footer" slot="footer">
-        <el-button @click="showPassword=false">取 消</el-button>
+        <el-button @click="showPassword = false">取 消</el-button>
         <el-button @click="savePassword" type="primary">确 定</el-button>
       </div>
     </el-dialog>
@@ -95,7 +117,7 @@
 </template>
 <script>
 import ChooseImg from "@/components/chooseImg";
-import { setUserInfo,changePassword } from "@/api/user";
+import { setUserInfo, changePassword } from "@/api/user";
 
 import { mapGetters, mapMutations } from "vuex";
 const path = process.env.VUE_APP_BASE_API;
@@ -110,11 +132,11 @@ export default {
       rules: {
         password: [
           { required: true, message: "请输入密码", trigger: "blur" },
-          { min: 6, message: "最少6个字符", trigger: "blur" }
+          { min: 6, message: "最少6个字符", trigger: "blur" },
         ],
         newPassword: [
           { required: true, message: "请输入新密码", trigger: "blur" },
-          { min: 6, message: "最少6个字符", trigger: "blur" }
+          { min: 6, message: "最少6个字符", trigger: "blur" },
         ],
         confirmPassword: [
           { required: true, message: "请输入确认密码", trigger: "blur" },
@@ -127,29 +149,29 @@ export default {
                 callback();
               }
             },
-            trigger: "blur"
-          }
-        ]
-      }
+            trigger: "blur",
+          },
+        ],
+      },
     };
   },
   components: {
-    ChooseImg
+    ChooseImg,
   },
   computed: {
-    ...mapGetters("user", ["userInfo", "token"])
+    ...mapGetters("user", ["userInfo", "token"]),
   },
   methods: {
     ...mapMutations("user", ["ResetUserInfo"]),
     savePassword() {
-      this.$refs.modifyPwdForm.validate(valid => {
+      this.$refs.modifyPwdForm.validate((valid) => {
         if (valid) {
           changePassword({
             username: this.userInfo.userName,
             password: this.pwdModify.password,
-            newPassword: this.pwdModify.newPassword
+            newPassword: this.pwdModify.newPassword,
           }).then((res) => {
-            if(res.code == 0){
+            if (res.code == 0) {
               this.$message.success("修改密码成功！");
             }
             this.showPassword = false;
@@ -163,7 +185,7 @@ export default {
       this.pwdModify = {
         password: "",
         newPassword: "",
-        confirmPassword: ""
+        confirmPassword: "",
       };
       this.$refs.modifyPwdForm.clearValidate();
     },
@@ -176,14 +198,14 @@ export default {
         this.ResetUserInfo({ headerImg: url });
         this.$message({
           type: "success",
-          message: "设置成功"
+          message: "设置成功",
         });
       }
     },
     handleClick(tab, event) {
       console.log(tab, event);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">
@@ -230,10 +252,10 @@ export default {
       .nickname {
         font-size: 26px;
       }
-      .person-info{
+      .person-info {
         margin-top: 6px;
         font-size: 14px;
-        color:#999
+        color: #999;
       }
     }
     .user-information {
@@ -277,27 +299,37 @@ export default {
     }
   }
 }
-.user-headpic-update{
-    width: 120px;
-    height: 120px;
-    line-height: 120px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    border-radius: 20px;
-     &:hover{
+.user-headpic-update {
+  width: 120px;
+  height: 120px;
+  line-height: 120px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+  &:hover {
+    color: #fff;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(0, 0, 0, 0.15) 100%
+      ),
+      radial-gradient(
+          at top center,
+          rgba(255, 255, 255, 0.4) 0%,
+          rgba(0, 0, 0, 0.4) 120%
+        )
+        #989898;
+    background-blend-mode: multiply, multiply;
+    .update {
       color: #fff;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
-      background-blend-mode: multiply,multiply;
-      .update{
-        color:#fff ;
-      }
-    }
-    .update{
-      height: 120px;
-      width: 120px;
-      text-align: center;
-      color:transparent;
     }
   }
+  .update {
+    height: 120px;
+    width: 120px;
+    text-align: center;
+    color: transparent;
+  }
+}
 </style>

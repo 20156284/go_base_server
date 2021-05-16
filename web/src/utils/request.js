@@ -41,7 +41,9 @@ service.interceptors.request.use(
         config.headers = {
             'Content-Type': 'application/json',
             'Authorization': "Bearer " + token,
-            'x-user-id': user.ID
+            'x-user-id': user.ID,
+            'platformType': 'web',
+            'version': '1.0',
         }
         return config;
     },

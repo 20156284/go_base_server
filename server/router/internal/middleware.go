@@ -47,9 +47,9 @@ func (m *middleware) JwtAuth(r *ghttp.Request) {
 		}
 		var claims = gconv.Map(_jwt.Claims)
 		r.SetParam("claims", _jwt.Claims)
-		r.SetParam("admin_authority_id", claims["admin_authority_id"])
+		r.SetParam("user_authority_id", claims["user_authority_id"])
 		if global.Config.System.UseMultipoint {
-			if !service.JwtBlacklist.ValidatorRedisToken(gconv.String(claims["admin_uuid"]), token) {
+			if !service.JwtBlacklist.ValidatorRedisToken(gconv.String(claims["user_uuid"]), token) {
 				_ = r.Response.WriteJson(&response.Response{Code: 7, Data: g.Map{"reload": true}, Message: "Token鉴权失败!"})
 				r.Exit()
 			}
@@ -66,7 +66,7 @@ func (m *middleware) CasbinRbac(r *ghttp.Request) {
 	// 获取请求方法
 	act := r.Request.Method
 	// 获取用户的角色
-	sub := r.GetParam("admin_authority_id")
+	sub := r.GetParam("user_authority_id")
 	e := service.Casbin.Casbin()
 	// 判断策略中是否存在
 	success, _ := e.Enforce(sub, obj, act)
@@ -95,7 +95,7 @@ func (m *middleware) OperationRecord(r *ghttp.Request) {
 		}
 	} else {
 		claims := gconv.Map(token.Claims)
-		uuid := gconv.String(claims["admin_uuid"])
+		uuid := gconv.String(claims["user_uuid"])
 		if m.result, m.err = service.Users.FindAdmin(&request.GetByUuid{Uuid: uuid}); m.err != nil {
 			g.Log().Error(`Function service.Admin.FindAdmin() Failed!`, g.Map{"err": m.err})
 		}

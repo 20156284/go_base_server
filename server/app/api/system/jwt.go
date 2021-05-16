@@ -21,7 +21,7 @@ func init() {
 		Key:             []byte(global.Config.Jwt.SigningKey),
 		Timeout:         time.Duration(global.Config.Jwt.ExpiresAt) * time.Hour * 24,
 		MaxRefresh:      time.Duration(global.Config.Jwt.RefreshAt) * time.Hour * 24,
-		IdentityKey:     "admin_id",
+		IdentityKey:     "user_id",
 		TokenLookup:     "header:Authorization, query:token, cookie:jwt",
 		TokenHeadName:   "Bearer",
 		TimeFunc:        time.Now,
@@ -59,7 +59,7 @@ func Unauthorized(r *ghttp.Request, code int, message string) {
 
 //@description: 用于定义自定义的登录成功回调函数
 func LoginResponse(r *ghttp.Request, code int, token string, expire time.Time) {
-	claims := r.GetParam("admin")
+	claims := r.GetParam("user")
 	data, ok := claims.(*model.Users)
 	r.SetParam("claims", data) // 设置参数保存到请求中
 	if !ok {
@@ -106,13 +106,13 @@ func RefreshResponse(r *ghttp.Request, code int, token string, expire time.Time)
 	//	redisJwt string
 	//	admin    *admins.AdminHasOneAuthority
 	//)
-	//admin, err = service.FindAdmin(gconv.String(claims["admin_uuid"]))
+	//admin, err = service.FindAdmin(gconv.String(claims["user_uuid"]))
 	//if err != nil {
 	//	global.FailWithMessage(r, "刷新Token失败")
 	//	r.Exit()
 	//}
 	//if !g.Cfg("system").GetBool("system.UseMultipoint") {
-	//	global.OkDetailed(r, response.AdminLogin{User: admin, Token: token, ExpiresAt: expire.Unix() * 1000}, "登录成功!")
+	//	global.OkDetailed(r, response.UserLogin{User: admin, Token: token, ExpiresAt: expire.Unix() * 1000}, "登录成功!")
 	//	r.Exit()
 	//}
 	//if redisJwt, err = service.GetRedisJWT(admin.Uuid); err != nil {
@@ -129,26 +129,44 @@ func RefreshResponse(r *ghttp.Request, code int, token string, expire time.Time)
 	//		r.Exit()
 	//	}
 	//}
-	//global.OkDetailed(r, response.AdminLogin{User: admin, Token: token, ExpiresAt: expire.Unix() * 1000}, "登录成功!")
+	//global.OkDetailed(r, response.UserLogin{User: admin, Token: token, ExpiresAt: expire.Unix() * 1000}, "登录成功!")
 	r.ExitAll()
 }
 
 //@description: 用于验证登录参数。 它必须返回用户数据作为用户标识符，并将其存储在Claim Array中。 检查错误（e），以确定适当的错误消息。
 func Authenticator(r *ghttp.Request) (interface{}, error) {
-	var info request.AdminLogin
-	if err := r.Parse(&info); err != nil {
-		_ = r.Response.WriteJson(&response.Response{Code: 7, Error: err, Message: err.Error()})
-		r.Exit()
+	var info request.UserLogin
+
+	if platformType := r.Header.Get("platformType"); platformType == "web" {
+		if err := r.Parse(&info); err != nil {
+			_ = r.Response.WriteJson(&response.Response{Code: 7, Error: err, Message: err.Error()})
+			r.Exit()
+		}
+		if !service.Store.Verify(info.CaptchaId, info.Captcha, true) { // 验证码校对
+			return nil, errors.New("验证码错误! ")
+		}
 	}
-	if !service.Store.Verify(info.CaptchaId, info.Captcha, true) { // 验证码校对
-		return nil, errors.New("验证码错误! ")
+
+	if platformType := r.Header.Get("platformType"); platformType == "ios" {
+		if err := r.Parse(&info); err != nil {
+			_ = r.Response.WriteJson(&response.Response{Code: 7, Error: err, Message: err.Error()})
+			r.Exit()
+		}
 	}
+
+	if platformType := r.Header.Get("platformType"); platformType == "android" {
+		if err := r.Parse(&info); err != nil {
+			_ = r.Response.WriteJson(&response.Response{Code: 7, Error: err, Message: err.Error()})
+			r.Exit()
+		}
+	}
+
 	if data, err := service.Users.Login(&info); err != nil {
 		_ = r.Response.WriteJson(&response.Response{Code: 7, Error: err, Err: err.Error()})
 		r.ExitAll()
 		return nil, nil
 	} else {
-		r.SetParam("admin", data) // 设置参数保存到请求中
-		return g.Map{"admin_uuid": data.Uuid, "admin_id": data.ID, "admin_nickname": data.Nickname, "admin_authority_id": data.AuthorityId}, nil
+		r.SetParam("user", data) // 设置参数保存到请求中
+		return g.Map{"user_uuid": data.Uuid, "user_id": data.ID, "user_nickname": data.Nickname, "user_authority_id": data.AuthorityId}, nil
 	}
 }
